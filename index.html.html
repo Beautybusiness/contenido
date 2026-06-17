@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Plan de Contenido · Beauty $ Business · @lyznyzacademia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --red:#8B0000;--red2:#C0152A;--red3:#D42030;
+  --rg:linear-gradient(135deg,#6B0000 0%,#A80000 40%,#C0152A 70%,#D42030 100%);
+  --rg2:linear-gradient(135deg,#8B0000,#D42030);
+  --bg:#ffffff;--bg2:#fdf5f6;--bg3:#f9eced;
+  --border:rgba(139,0,0,0.14);--border2:rgba(192,21,42,0.28);
+  --text:#1a0507;--text2:#4a1a1e;--muted:#8a5a60;
+  --radius:14px;--radius2:22px;
+  --shadow:0 2px 16px rgba(139,0,0,0.08);
+  --shadow2:0 6px 28px rgba(139,0,0,0.13);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#fdf5f6;}
+::-webkit-scrollbar-thumb{background:var(--red2);border-radius:4px;}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:400;background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1.5px solid var(--border);box-shadow:0 2px 16px rgba(139,0,0,0.07);}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:11px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.brand{display:flex;flex-direction:column;gap:1px;}
+.brand-name{font-size:14px;font-weight:800;letter-spacing:0.5px;
+  background:var(--rg2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:0.8px;}
+.hdr-right{display:flex;align-items:center;gap:12px;}
+.prog-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+.prog-label{font-size:11px;font-weight:700;color:var(--red2);}
+.prog-bar{width:130px;height:5px;background:rgba(139,0,0,0.08);border-radius:10px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--rg2);border-radius:10px;transition:width .6s ease;width:0;}
+.btn-pdf{background:var(--rg2);color:#fff;border:none;padding:9px 18px;border-radius:30px;
+  font-size:11px;font-weight:800;cursor:pointer;letter-spacing:.8px;text-transform:uppercase;
+  box-shadow:0 3px 12px rgba(192,21,42,0.3);transition:all .2s;}
+.btn-pdf:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(192,21,42,0.4);}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#fff 0%,#fdf0f2 50%,#f8e8eb 100%);
+  padding:64px 24px 56px;text-align:center;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;background:radial-gradient(circle,rgba(192,21,42,0.06) 0%,transparent 65%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 16px;
+  border:1.5px solid rgba(139,0,0,0.18);border-radius:30px;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red2);
+  background:rgba(192,21,42,0.04);margin-bottom:22px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6.5vw,72px);
+  font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px;color:var(--text);}
+.hero h1 em{font-style:italic;background:var(--rg2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(13px,2vw,15px);color:var(--red2);max-width:560px;margin:0 auto 14px;
+  line-height:1.6;border-left:3px solid var(--red2);padding-left:14px;text-align:left;}
+.hero-sub{font-size:clamp(13px,2vw,15px);color:var(--muted);max-width:520px;margin:0 auto 32px;line-height:1.7;}
+.hero-stats{display:flex;justify-content:center;gap:clamp(20px,5vw,56px);flex-wrap:wrap;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,50px);font-weight:700;line-height:1;
+  background:var(--rg2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;}
+
+/* OVERVIEW */
+.overview{max-width:1200px;margin:28px auto 0;padding:0 20px 28px;}
+.ov-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius2);
+  padding:22px 26px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:var(--shadow);}
+.ring-wrap{position:relative;flex-shrink:0;}
+.ring-svg{transform:rotate(-90deg);}
+.ring-bg{fill:none;stroke:rgba(139,0,0,0.08);stroke-width:7;}
+.ring-fill{fill:none;stroke:url(#rg-ring);stroke-width:7;stroke-linecap:round;
+  stroke-dasharray:220;stroke-dashoffset:220;transition:stroke-dashoffset .9s ease;}
+.ring-txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ring-pct{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;line-height:1;
+  background:var(--rg2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ring-sub{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.ov-info{flex:1;min-width:160px;}
+.ov-info h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.ov-info p{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.counters{display:flex;gap:10px;flex-wrap:wrap;}
+.ctr{padding:9px 14px;border-radius:10px;text-align:center;min-width:72px;
+  background:var(--bg3);border:1px solid var(--border);}
+.ctr.hi{background:rgba(192,21,42,0.05);border-color:var(--border2);}
+.ctr-n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;display:block;line-height:1;
+  background:var(--rg2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ctr-l{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;display:block;margin-top:2px;}
+
+/* ROUTE */
+.route{max-width:1200px;margin:0 auto;padding:0 20px 60px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--text);margin-bottom:3px;}
+.sec-title span{background:var(--rg2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-sub{font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:.3px;}
+
+/* MES HEADER */
+.mes-hdr{display:flex;align-items:center;gap:12px;margin:30px 0 16px;}
+.mes-pill{background:var(--rg);color:#fff;border-radius:30px;padding:6px 18px;
+  font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;
+  box-shadow:0 3px 12px rgba(139,0,0,0.22);}
+.mes-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(139,0,0,0.18),transparent);}
+.mes-cnt{font-size:10px;color:var(--muted);white-space:nowrap;font-weight:600;letter-spacing:.8px;}
+
+/* WEEK ROW */
+.week-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;position:relative;}
+.week-row::before{content:'';position:absolute;left:25px;top:50px;bottom:-10px;width:1px;
+  background:linear-gradient(180deg,rgba(139,0,0,0.15),transparent);pointer-events:none;}
+.week-row:last-child::before{display:none;}
+
+/* NODE */
+.node{flex-shrink:0;width:52px;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.node-circle{width:50px;height:50px;border-radius:50%;background:#fff;
+  border:2px solid rgba(139,0,0,0.14);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;
+  box-shadow:0 2px 8px rgba(139,0,0,0.05);}
+.node-circle::before{content:'';position:absolute;inset:0;background:var(--rg2);opacity:0;transition:opacity .3s;}
+.node-circle.progress{border-color:rgba(192,21,42,0.35);}
+.node-circle.progress::before{opacity:.1;}
+.node-circle.done{border-color:transparent;box-shadow:0 3px 12px rgba(192,21,42,0.28);}
+.node-circle.done::before{opacity:1;}
+.node-circle:hover{transform:scale(1.08);border-color:var(--red2);}
+.node-num{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--muted);
+  position:relative;z-index:1;transition:color .3s;}
+.node-circle.progress .node-num{color:var(--red2);}
+.node-circle.done .node-num{display:none;}
+.node-check{display:none;font-size:18px;color:#fff;position:relative;z-index:1;}
+.node-circle.done .node-check{display:block;}
+.node-lbl{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;text-align:center;}
+
+/* WEEK CARD */
+.wcard{flex:1;border-radius:var(--radius);border:1.5px solid var(--border);background:#fff;
+  overflow:hidden;cursor:pointer;transition:all .25s ease;min-width:0;box-shadow:var(--shadow);}
+.wcard:hover{border-color:var(--border2);box-shadow:var(--shadow2);}
+.wcard.open{border-color:var(--border2);box-shadow:var(--shadow2);}
+.wcard-head{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.wcard-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
+.lvl-badge{padding:3px 9px;border-radius:20px;font-size:9px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;white-space:nowrap;flex-shrink:0;
+  background:rgba(192,21,42,0.07);color:var(--red2);border:1px solid var(--border2);}
+.wcard-titles{min-width:0;}
+.wcard-title{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2.8vw,17px);
+  font-weight:700;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wcard-sub{font-size:10px;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wcard-right{display:flex;align-items:center;gap:9px;flex-shrink:0;}
+.mdots{display:flex;gap:3px;flex-wrap:wrap;max-width:54px;}
+.md{width:7px;height:7px;border-radius:50%;background:rgba(139,0,0,0.09);transition:all .3s;flex-shrink:0;}
+.md.d{background:rgba(192,21,42,0.35);}
+.md.p{background:var(--red2);box-shadow:0 0 4px rgba(192,21,42,0.35);}
+.chev{font-size:13px;color:var(--muted);transition:transform .3s;flex-shrink:0;}
+.wcard.open .chev{transform:rotate(180deg);color:var(--red2);}
+
+/* CARD BODY */
+.wcard-body{display:none;border-top:1.5px solid var(--border);}
+.wcard-body.open{display:block;animation:fadeDown .22s ease;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:14px;padding:16px;background:#faf3f4;}
+
+/* CONTENT CARD */
+.cc{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:18px;
+  box-shadow:0 1px 6px rgba(139,0,0,0.04);transition:border-color .2s;}
+.cc:hover{border-color:var(--border2);}
+
+/* TYPE BAR */
+.cc-top{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.cc-icon{width:33px;height:33px;border-radius:9px;display:flex;align-items:center;
+  justify-content:center;font-size:16px;flex-shrink:0;}
+.cc-icon.video{background:rgba(192,21,42,0.07);border:1px solid rgba(192,21,42,0.14);}
+.cc-icon.carousel{background:rgba(100,60,0,0.07);border:1px solid rgba(100,60,0,0.14);}
+.cc-meta{flex:1;min-width:0;}
+.cc-type{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;}
+.cc-type.video{color:var(--red2);}
+.cc-type.carousel{color:#7a4800;}
+.cc-num{font-size:10px;color:var(--muted);margin-top:1px;}
+
+/* CONTENT TITLE */
+.cc-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;
+  color:var(--text);margin-bottom:12px;line-height:1.35;}
+
+/* SECTION LABELS */
+.s-lbl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;
+  display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+.s-lbl::after{content:'';flex:1;height:1px;}
+.s-lbl.hook{color:var(--red2);}
+.s-lbl.hook::after{background:rgba(192,21,42,0.15);}
+.s-lbl.guion{color:#555;}
+.s-lbl.guion::after{background:rgba(0,0,0,0.08);}
+.s-lbl.slides{color:#7a4800;}
+.s-lbl.slides::after{background:rgba(100,60,0,0.15);}
+.s-lbl.copy{color:var(--red2);}
+.s-lbl.copy::after{background:rgba(192,21,42,0.12);}
+
+/* HOOK */
+.cc-hook{font-size:13px;color:var(--text);font-weight:600;line-height:1.55;
+  border-left:3px solid var(--red2);padding:6px 10px;
+  background:rgba(192,21,42,0.03);border-radius:0 8px 8px 0;margin-bottom:12px;}
+
+/* GUION */
+.cc-guion{font-size:12px;color:var(--text2);line-height:1.65;
+  padding:10px 12px;background:#f9f0f1;border-radius:8px;
+  border:1px solid rgba(139,0,0,0.08);margin-bottom:12px;}
+
+/* SLIDES */
+.slides-list{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.slide-item{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--text2);
+  line-height:1.5;padding:5px 8px;background:#fdf6ee;border-radius:6px;
+  border-left:3px solid #8B5000;}
+.slide-n{background:rgba(100,60,0,0.12);color:#8B5000;border-radius:4px;
+  padding:0 5px;font-size:9px;font-weight:800;flex-shrink:0;line-height:1.7;margin-top:1px;}
+
+/* COPY */
+.cc-copy-box{font-size:12.5px;color:var(--text2);line-height:1.65;
+  padding:11px 13px;background:#fff8f8;border-radius:8px;
+  border:1.5px solid rgba(192,21,42,0.13);white-space:pre-wrap;
+  word-break:break-word;margin-bottom:8px;}
+.btn-copy{display:flex;align-items:center;justify-content:center;gap:6px;
+  width:100%;padding:9px;background:var(--rg2);color:#fff;border:none;
+  border-radius:8px;cursor:pointer;font-size:11px;font-weight:800;
+  letter-spacing:.5px;text-transform:uppercase;
+  transition:all .2s;box-shadow:0 2px 10px rgba(192,21,42,0.2);margin-bottom:12px;}
+.btn-copy:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(192,21,42,0.3);}
+.btn-copy.copied{background:linear-gradient(135deg,#167a16,#228b22);}
+
+/* CHECKLIST */
+.cc-checks{display:flex;flex-direction:column;gap:7px;
+  padding-top:11px;border-top:1px solid rgba(139,0,0,0.08);}
+.check-row{display:flex;align-items:center;gap:9px;}
+.check-row input[type=checkbox]{width:17px;height:17px;flex-shrink:0;cursor:pointer;
+  -webkit-appearance:none;appearance:none;border-radius:4px;
+  background:#f9f0f1;border:1.5px solid rgba(139,0,0,0.2);
+  position:relative;transition:all .2s;accent-color:var(--red2);}
+.check-row input[type=checkbox]:checked{background:var(--red2);border-color:var(--red2);}
+.check-row input[type=checkbox]:checked::after{content:'✓';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:11px;font-weight:900;}
+.check-row label{font-size:12px;color:var(--text2);cursor:pointer;flex:1;line-height:1.3;}
+.check-row.done label{text-decoration:line-through;color:var(--muted);}
+
+/* ANGLE BADGE */
+.angle-badge{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;padding:2px 8px;border-radius:12px;margin-bottom:10px;
+  background:rgba(139,0,0,0.06);color:var(--muted);border:1px solid var(--border);}
+
+/* MODAL */
+.modal-wrap{display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(10,0,2,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:20px;}
+.modal-wrap.show{display:flex;}
+.modal{background:#fff;border:1.5px solid var(--border2);border-radius:var(--radius2);
+  padding:30px;max-width:460px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.14);}
+.modal h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;
+  color:var(--text);margin-bottom:7px;}
+.modal p{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.6;}
+.mbtn{width:100%;padding:13px;border-radius:10px;font-size:13px;font-weight:700;
+  cursor:pointer;border:none;transition:all .2s;margin-bottom:8px;}
+.mbtn.primary{background:var(--rg2);color:#fff;box-shadow:0 3px 14px rgba(192,21,42,0.3);}
+.mbtn.primary:hover{transform:translateY(-1px);}
+.mbtn.cancel{background:transparent;color:var(--muted);font-size:12px;}
+
+/* FOOTER */
+.footer{background:linear-gradient(180deg,#f9eced,#f0e0e3);
+  border-top:1.5px solid var(--border);padding:30px 24px;text-align:center;margin-top:10px;}
+.footer-tag{font-size:11px;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:4px;}
+.footer-brand{font-size:16px;font-weight:800;color:var(--red2);margin-bottom:8px;letter-spacing:.3px;}
+.footer-rights{font-size:10px;color:var(--muted);letter-spacing:.8px;line-height:1.7;}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);
+  background:#fff;border:1.5px solid rgba(192,21,42,0.18);color:var(--text);
+  padding:11px 22px;border-radius:30px;font-size:13px;font-weight:600;z-index:9999;
+  opacity:0;transition:all .32s cubic-bezier(.34,1.56,.64,1);pointer-events:none;
+  white-space:nowrap;box-shadow:0 5px 20px rgba(0,0,0,.1);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .prog-wrap{display:none;}
+  .content-grid{grid-template-columns:1fr;}
+  .week-row::before{left:20px;}
+  .node{width:42px;} .node-circle{width:42px;height:42px;} .node-num{font-size:15px;}
+  .hdr-inner{gap:8px;} .hero{padding:44px 16px 40px;}
+  .overview,.route{padding-left:14px;padding-right:14px;}
+  .btn-pdf{padding:8px 13px;font-size:10px;}
+}
+@media(max-width:380px){
+  .wcard-title{font-size:13px;} .wcard-sub{display:none;}
+}
+@supports(-webkit-touch-callout:none){
+  input[type=checkbox]{-webkit-appearance:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="brand">
+      <div class="brand-name">BEAUTY $ BUSINESS</div>
+      <div class="brand-sub">Plan de Contenido · 14 Semanas · @lyznyzacademia</div>
+    </div>
+    <div class="hdr-right">
+      <div class="prog-wrap">
+        <div class="prog-label" id="hdr-label">0 publicados</div>
+        <div class="prog-bar"><div class="prog-fill" id="hdr-bar"></div></div>
+      </div>
+      <button class="btn-pdf" onclick="openModal()">⬇ Descargar PDF</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">✦ Certificación Técnica · Beauty $ Business ✦</div>
+  <h1>O trabajas por <em>tus sueños,</em><br>o trabajas por los de alguien más</h1>
+  <blockquote class="hero-quote">"Si tú no trabajas por tus sueños, alguien te contratará para que trabajes por los suyos." — Steve Jobs</blockquote>
+  <p class="hero-sub">Cada publicación que creas mientras te formas construye tu reputación, tu autoridad y el negocio que estás a punto de abrir.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">14</div><div class="stat-lbl">Clases</div></div>
+    <div class="stat"><div class="stat-num" id="hero-total">84</div><div class="stat-lbl">Publicaciones</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Meses</div></div>
+  </div>
+</section>
+
+<div class="overview">
+  <div class="ov-card">
+    <svg style="position:absolute;width:0;height:0"><defs>
+      <linearGradient id="rg-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#8B0000"/>
+        <stop offset="100%" style="stop-color:#D42030"/>
+      </linearGradient>
+    </defs></svg>
+    <div class="ring-wrap">
+      <svg width="80" height="80" class="ring-svg">
+        <circle class="ring-bg" cx="40" cy="40" r="35"/>
+        <circle class="ring-fill" id="ring-el" cx="40" cy="40" r="35"/>
+      </svg>
+      <div class="ring-txt">
+        <div class="ring-pct" id="ring-pct">0%</div>
+        <div class="ring-sub">listo</div>
+      </div>
+    </div>
+    <div class="ov-info">
+      <h3>Tu progreso total</h3>
+      <p>Marca diseñado y publicado en cada contenido para avanzar.</p>
+      <div class="counters">
+        <div class="ctr hi"><span class="ctr-n" id="cnt-pub">0</span><span class="ctr-l">Publicados</span></div>
+        <div class="ctr"><span class="ctr-n" id="cnt-des">0</span><span class="ctr-l">Diseñados</span></div>
+        <div class="ctr"><span class="ctr-n" id="cnt-tot">84</span><span class="ctr-l">Total</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="route">
+  <div class="sec-title">Tu <span>ruta de contenido</span></div>
+  <div class="sec-sub">Haz clic en cada semana · Marca tu avance · Descarga tu guión en PDF</div>
+  <div id="route-map"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-tag">Plataforma educativa desarrollada por</div>
+  <div class="footer-brand">@lyznyzacademia</div>
+  <div class="footer-rights">© Todos los derechos reservados · Prohibido compartir, reproducir o distribuir sin autorización expresa · Beauty $ Business Certificación Técnica</div>
+</footer>
+
+<div class="modal-wrap" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <h3>📋 Descargar plan completo</h3>
+    <p>Se generará un PDF imprimible con el guión completo de cada contenido — hook, idea y slides — para que lo uses como chuleta al grabar. El copy lo copias directo desde la plataforma.</p>
+    <button class="mbtn primary" onclick="downloadPDF()">⬇ Generar y descargar PDF</button>
+    <button class="mbtn cancel" onclick="closeModal()">Cancelar</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════ DATA ═══════════
+const MES_INFO={
+  1:{label:"Mes 1",sub:"Semanas 1–4 · 3 contenidos/semana"},
+  2:{label:"Mes 2",sub:"Semanas 5–8 · 6 contenidos/semana"},
+  3:{label:"Mes 3",sub:"Semanas 9–13 · 9 contenidos/semana"},
+  4:{label:"Semana Final",sub:"Semana 14 · Clase de Marketing"}
+};
+
+function aTag(a){return{problema:"🔴 Problema",producto:"🔵 Producto",solucion:"🟢 Solución",mentalidad:"🟡 Mentalidad"}[a]||a;}
+function aColor(a){return{problema:"#C0152A",producto:"#1a5fa8",solucion:"#167a16",mentalidad:"#7a4800"}[a]||"#666";}
+
+const PLAN=[
+{week:1,mes:1,level:"Nivel 1",title:"Brow Análisis",sub:"Análisis de tipos de ceja, rostro y visagismo",contents:[
+  {id:"1a",type:"video",num:"Reel 1",angle:"mentalidad",
+   title:"Tomé la decisión más importante de mi carrera",
+   hook:"Tomé una decisión que puede cambiarme la vida — y quiero que lo vivas conmigo.",
+   guion:"Abre con un momento personal: estás frente a cámara, emocionada, y dices que hoy comenzaste una certificación de negocios en cejas y pestañas. No un curso — una certificación completa donde estudias técnica Y estrategia para abrir tu propio negocio. Explica tu meta: salir con todo listo para lanzar. Invita a seguirte para documentar el proceso semana a semana.",
+   copy:"HOY comencé mi certificación de negocios en cejas y pestañas. No es un curso cualquiera — es donde aprendo técnica, pero también a construir un negocio real. Mi meta es salir de aquí con todo listo. Te invito a vivir este proceso conmigo.\n\nSígueme para que no te pierdas nada. 👁️",
+   slides:[]},
+  {id:"1b",type:"video",num:"Reel 2",angle:"mentalidad",
+   title:"Primera semana: expectativas al mil",
+   hook:"¿Qué esperas de una certificación de negocios en cejas y pestañas? Yo te cuento la mía.",
+   guion:"Graba una reacción honesta después de tu primera clase. Cuenta que el visagismo profesional tiene más de 20 pasos — algo que nadie imagina viendo tutoriales en redes. Muestra tus apuntes, tu cara de sorpresa. Reflexiona sobre la diferencia entre lo que vemos en internet y lo que se estudia en profundidad.",
+   copy:"Primera clase y ya me di cuenta: lo que vemos en internet es el 10% de lo que realmente implica hacer cejas de forma profesional. El visagismo solo tiene más de 20 pasos.\n\nEsto va a ser intenso. Dale like si también crees que la preparación lo es todo. 💜",
+   slides:[]},
+  {id:"1c",type:"carousel",num:"Carrusel 1",angle:"mentalidad",
+   title:"Por qué decidí certificarme en cejas y pestañas",
+   hook:"Por qué decidí certificarme en cejas y pestañas — y lo que nadie te cuenta antes de empezar.",
+   guion:"Carrusel de presentación personal como nueva estudiante. S1 = portada con el hook visual. S2 = tu decisión y por qué elegiste una certificación de negocios y no un curso. S3 = qué incluye: técnica + marketing + estrategia. S4 = primera sorpresa de la semana: el visagismo tiene más de 20 pasos. S5 = lo que el internet no te muestra del trabajo profesional. S6 = CTA de seguimiento.",
+   copy:"La decisión que tomé esta semana puede cambiarme la vida.\n\n¿Me acompañas en este proceso? Sígueme para verlo todo. 👁️",
+   slides:[
+     "Por qué decidí certificarme — y lo que nadie te cuenta antes (PORTADA)",
+     "Tomé una decisión: este año abro mi negocio de cejas y pestañas.",
+     "No busqué un curso. Busqué una certificación de negocios: técnica + marketing + estrategia.",
+     "Primera clase: Brow Análisis. El visagismo profesional tiene más de 20 pasos.",
+     "Lo que vemos en redes es el 10% de lo que en realidad se estudia.",
+     "¿Me acompañas en este proceso? Sígueme para verlo todo. 👁️"
+   ]}
+]},
+{week:2,mes:1,level:"Nivel 2",title:"Diseño de Ceja",sub:"Fundamentos del diseño: proporciones, puntos clave y técnica profesional",contents:[
+  {id:"2a",type:"video",num:"Reel 1",angle:"problema",
+   title:"¿Sabías que el diseño profesional de cejas tiene más de 20 pasos?",
+   hook:"Me quedé boca abierta: el diseño de cejas que parece simple en internet tiene más de 20 pasos en la práctica.",
+   guion:"Graba mostrando tus apuntes de la clase de diseño de ceja. Reacciona ante la cantidad de pasos que implica un Brow Design profesional. Explica que no se trata solo de trazar una línea sino de proporciones, visagismo, análisis del rostro. Conecta con la idea de que la diferencia entre una técnica y una experta está en estos detalles que el cliente jamás ve.",
+   copy:"Semana 2 y ya estoy estudiando diseño profesional de ceja. El Brow Design es el paso crucial para todo lo demás: depilación, colorimetría, que la clienta quede satisfecha. Y tiene más pasos de los que imaginas.\n\nSígueme para ver mi evolución semana a semana. 🔔",
+   slides:[]},
+  {id:"2b",type:"video",num:"Reel 2",angle:"problema",
+   title:"El error que arruina las cejas antes de empezar",
+   hook:"¿Por qué tus cejas no enmarcan tu mirada aunque te las depiles perfectamente?",
+   guion:"Explica con un dibujo simple o señalando en tu propio rostro los 3 puntos clave del diseño de ceja: cabecera, arco y cola. Muestra cómo ignorar cualquiera de los 3 genera asimetría. No es necesario revelar toda la técnica — solo crear conciencia del problema y posicionarte como quien ahora sí sabe por qué pasa.",
+   copy:"El 90% de los problemas de asimetría nacen antes de tocar la piel. Son 3 puntos del diseño que definen si una ceja te favorece o te arruina la mirada. Cabecera, arco y cola — lo que estoy aprendiendo a dominar.\n\nDale like si quieres saber más. 💜",
+   slides:[]},
+  {id:"2c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Los 3 puntos que determinan si tus cejas te favorecen",
+   hook:"3 puntos. Eso es lo que separa una ceja que enmarca la mirada de una que la arruina.",
+   guion:"S1 = portada con el hook. S2 = Punto 1: La Cabecera (el inicio marca todo). S3 = Punto 2: El Arco (aquí está la personalidad). S4 = Punto 3: La Cola (sin este nada cierra bien). S5 = Ignorar cualquiera = asimetría garantizada. S6 = Lo que estudio para dominar esto. Usa dibujos o referencias visuales claras.",
+   copy:"3 puntos. Eso es todo lo que necesitas conocer para que tus cejas te favorezcan de verdad.\n\nGuarda este post para tu próxima cita. 📌",
+   slides:[
+     "3 puntos que determinan si tus cejas te favorecen — o no (PORTADA)",
+     "Punto 1: La Cabecera — el inicio marca todo el diseño.",
+     "Punto 2: El Arco — aquí está la personalidad de la ceja.",
+     "Punto 3: La Cola — sin este punto, nada cierra bien.",
+     "Ignorar cualquiera de los 3 = asimetría garantizada.",
+     "Esto es lo que estudio esta semana en mi certificación."
+   ]}
+]},
+{week:3,mes:1,level:"Nivel 3",title:"Pestañas Comerciales",sub:"Pestañas pelo a pelo express — servicio de alta rentabilidad",contents:[
+  {id:"3a",type:"video",num:"Reel 1",angle:"producto",
+   title:"El servicio de pestañas más rentable y el que menos conocen",
+   hook:"¿Y si te dijera que hay un servicio de pestañas que dura más de 15 días y se coloca en 15 minutos?",
+   guion:"Habla a cámara sobre las pestañas comerciales pelo a pelo. Explica que es un servicio express — máximo 15 minutos de colocación — con duración de más de 15 días. Muestra entusiasmo genuino. Conecta con el posicionamiento: estás aprendiendo este servicio para ofrecerlo con calidad profesional.",
+   copy:"Semana 3 y ya estudio uno de los servicios más rentables que existen: pestañas comerciales pelo a pelo. Express, duraderas, y estéticamente hermosas.\n\nSígueme para ver mis primeras prácticas. 👁️",
+   slides:[]},
+  {id:"3b",type:"video",num:"Reel 2",angle:"problema",
+   title:"No es solo poner una pestaña — es todo lo que nadie ve",
+   hook:"Deja de hacer esto si quieres que unas pestañas postizas se vean naturales y duren.",
+   guion:"Muestra el contraste entre una aplicación genérica y lo que implica hacerlo con técnica: limpieza del párpado, selección de fibra correcta, curva según el tipo de ojo. No tienes que revelar todo — solo crear conciencia de que la diferencia está en el conocimiento. Posiciónate como quien está aprendiendo eso.",
+   copy:"La diferencia entre unas pestañas que se ven mal y unas perfectas no está en el producto — está en la técnica. Limpieza, fibra, curva: detalles que marcan todo.\n\nGuarda este video antes de tu próxima cita. 📌",
+   slides:[]},
+  {id:"3c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Pestañas comerciales: el servicio perfecto para iniciar",
+   hook:"¿Qué harías si pudieras ofrecer un servicio de pestañas profesional y rentable desde el inicio?",
+   guion:"S1 = portada con el hook. S2 = qué son las pestañas comerciales pelo a pelo. S3 = tiempo: máximo 15 minutos. S4 = duración: más de 15 días con el cuidado correcto. S5 = por qué son tan rentables: relación tiempo/resultado. S6 = lo que necesitas para ofrecerlas bien y por qué lo estás estudiando.",
+   copy:"15 minutos de servicio. Más de 15 días de resultado. Eso son las pestañas comerciales.\n\nDale like si quieres saber cuándo las ofrezco. 💜",
+   slides:[
+     "¿Qué harías si pudieras ofrecer pestañas profesionales desde el inicio? (PORTADA)",
+     "Las pestañas comerciales se colocan pelo a pelo con técnica precisa.",
+     "Tiempo de servicio: máximo 15 minutos.",
+     "Duración: más de 15 días en la clienta con el cuidado correcto.",
+     "Relación tiempo/resultado = servicio altamente rentable.",
+     "Lo estudio esta semana para ofrecerlo con calidad profesional. 💜"
+   ]}
+]},
+{week:4,mes:1,level:"Nivel 4",title:"Colorimetría: Henna y Tinte",sub:"Teoría del color, mezclas, pigmentos y aplicación profesional",contents:[
+  {id:"4a",type:"video",num:"Reel 1",angle:"problema",
+   title:"¿Por qué tu henna sale naranja, verde o gris a los días?",
+   hook:"¿Por qué tu henna de cejas se ve de un color completamente diferente a los 3 días?",
+   guion:"Habla de un problema real que el público reconoce: la henna que cambia de color. Explica sin revelar la fórmula exacta que esto tiene causa técnica — subtonos de piel, mezclas incorrectas, productos de baja calidad. La colorimetría es química real. Quien la hace sin estudiarla está poniendo en riesgo la piel de su clienta.",
+   copy:"Esto pasa y tiene una razón técnica: los productos de coloración para cejas NO son simples. Son mezclas que hay que saber preparar. Esta semana en mi certificación entendí exactamente por qué pasan esos colores indeseados.\n\nGuarda este video si te ha pasado. 📌",
+   slides:[]},
+  {id:"4b",type:"video",num:"Reel 2",angle:"mentalidad",
+   title:"Talento empírico sin formación tiene un techo muy bajo",
+   hook:"Nadie habla de lo que le pasa a la piel cuando aplican henna sin el conocimiento correcto.",
+   guion:"Habla directamente a quienes hacen cejas de forma empírica. El talento es un regalo — pero la colorimetría es química: oxidación, neutralización, subtonos. Un error puede manchar la piel permanentemente. Estudiar no es un lujo ni significa que no eres buena — significa que respetas a tus clientas.",
+   copy:"Si naciste con talento para las cejas, eso es un regalo. Pero sin formación, ese talento tiene un techo. La colorimetría es química real — y aprenderla es una responsabilidad.\n\nDale like si crees que prepararse es un deber profesional. 💜",
+   slides:[]},
+  {id:"4c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Henna vs. Tinte: lo que debes saber antes de elegir",
+   hook:"¿Henna o tinte para cejas? La respuesta depende de algo que quizás no sabías.",
+   guion:"S1 = portada con hook. S2 = Henna: qué hace, dónde actúa (piel Y vello), cuánto dura. S3 = Tinte: actúa solo en el vello, acabado más sutil y natural. S4 = cómo elegir según el subtono de piel. S5 = qué pasa cuando la mezcla está mal. S6 = por qué esto requiere formación y no intuición.",
+   copy:"Henna o tinte — no son lo mismo, y elegir mal puede costarle la piel a tu clienta.\n\nComparte con alguien que haga cejas sin estudiar esto. 👇",
+   slides:[
+     "¿Henna o tinte? La respuesta depende de algo que quizás no sabías (PORTADA)",
+     "Henna: pigmenta piel Y vello. Dura 2-4 semanas en piel.",
+     "Tinte: pigmenta solo el vello. Acabado más natural y sutil.",
+     "La elección correcta depende del subtono de piel de tu clienta.",
+     "Una mezcla incorrecta = color indeseable por semanas en la piel.",
+     "Por eso la colorimetría requiere formación, no solo práctica."
+   ]}
+]},
+// MES 2
+{week:5,mes:2,level:"Nivel 5",title:"Depilación Facial · Starpil",sub:"Método Starpil — depilación profesional y cuidado de la piel",contents:[
+  {id:"5a",type:"video",num:"Reel 1",angle:"problema",
+   title:"¿Depilación o epilación? No es lo mismo",
+   hook:"¿Por qué nadie habla de la diferencia entre depilación y epilación? Son cosas distintas.",
+   guion:"Explica de forma clara y directa la diferencia: depilar elimina desde la superficie, epilar extrae desde la raíz. Muchos usan estos términos como sinónimos — y eso revela falta de conocimiento técnico. Conecta con el método Starpil que estás aprendiendo esta semana.",
+   copy:"El 90% de personas confunde depilación con epilación. No son lo mismo — y quien las confunde está trabajando sin bases técnicas.\n\nGuarda este video para saber con quién te atiendes. 📌",
+   slides:[]},
+  {id:"5b",type:"video",num:"Reel 2",angle:"problema",
+   title:"3 errores que arruinan la depilación facial",
+   hook:"3 errores que arruinan la depilación facial antes de que siquiera empiece el procedimiento.",
+   guion:"Enumera 3 errores comunes con ejemplos visuales o gestuales: aplicar sobre piel irritada o con activos, no respetar la dirección del vello, usar cera caliente sin protección térmica. Por cada error explica brevemente la consecuencia. Posiciónate como quien está aprendiendo a evitarlos con el método Starpil.",
+   copy:"Error 1: Aplicar sobre piel irritada. Error 2: No respetar la dirección del vello. Error 3: Sin protección térmica. Cada uno tiene consecuencias reales en la piel.\n\nDale like si valoras a los profesionales que estudian antes de tocar tu piel. 💜",
+   slides:[]},
+  {id:"5c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"¿Cada cuánto debes depilarte el rostro?",
+   hook:"¿Cada cuánto debes depilarte el rostro? La respuesta correcta depende de más de lo que crees.",
+   guion:"S1 = portada con hook. S2 = tipos de vello y su ciclo de crecimiento. S3 = vello lanugo: cada 3-4 semanas. S4 = vello terminal: cada 2-3 semanas según crecimiento. S5 = cuándo NO depilarte (piel con activos, irritación, acné activo). S6 = protocolo post-depilación básico.",
+   copy:"¿Cada cuánto te depilas? La frecuencia correcta depende del tipo de vello — y de cómo cuidas tu piel después.\n\nSígueme para más educación de belleza real. 🔔",
+   slides:[
+     "¿Cada cuánto debes depilarte el rostro? La respuesta te sorprenderá (PORTADA)",
+     "Depende del tipo de vello que tengas — no hay una respuesta única.",
+     "Vello lanugo (finito): cada 3-4 semanas para mantener el resultado.",
+     "Vello terminal (grueso): cada 2-3 semanas según su crecimiento.",
+     "NUNCA depilar: sobre piel con acné activo, irritación o quemadura solar.",
+     "Post-depilación: sin sol 24h, sin perfumes, sin maquillaje inmediato."
+   ]},
+  {id:"5d",type:"video",num:"Reel 3",angle:"producto",
+   title:"Así se ve una depilación facial profesional con Starpil",
+   hook:"Así se ve una depilación facial cuando la hace alguien que estudió para ello.",
+   guion:"Documenta tu práctica o demostración con el método Starpil: temperatura controlada, técnica de retiro que no irrita, piel limpia al final. Muestra el antes y después. Resalta la diferencia visual y táctil con una depilación improvisada.",
+   copy:"Temperatura controlada, técnica correcta, piel protegida. Así se ve la diferencia cuando estudias antes de trabajar.\n\nGuarda este video para cuando busques tu próxima experta. 📌",
+   slides:[]},
+  {id:"5e",type:"carousel",num:"Carrusel 2",angle:"mentalidad",
+   title:"Por qué tu piel facial merece una profesional certificada",
+   hook:"¿Por qué tu piel facial merece una profesional certificada y no la primera que encuentras?",
+   guion:"S1 = portada con hook. S2 = la piel facial es la más delicada y visible. S3 = una depilación mal hecha deja marcas permanentes. S4 = vello enquistado, foliculitis, quemaduras: todos tienen origen técnico. S5 = una profesional certificada analiza tu piel antes de tocarla. S6 = lo que estoy aprendiendo para estar a ese nivel.",
+   copy:"Tu piel facial es la más visible de tu cuerpo. Merece quien estudió para cuidarla.\n\nComparte con alguien que aún se depila en casa sin protección. 👇",
+   slides:[
+     "¿Por qué tu piel facial merece una profesional certificada? (PORTADA)",
+     "Es la zona más delicada y visible de tu cuerpo.",
+     "Una depilación mal hecha puede dejar marcas permanentes.",
+     "Vello enquistado, foliculitis, quemaduras — todos tienen origen técnico.",
+     "Una profesional certificada conoce tu tipo de piel antes de tocarla.",
+     "Eso es lo que estoy aprendiendo para que confíes en mí."
+   ]},
+  {id:"5f",type:"video",num:"Reel 4",angle:"solucion",
+   title:"Semana 5: así avanza mi certificación",
+   hook:"¿Qué pasa cuando llevas 5 semanas en una certificación de negocios en belleza? Esto.",
+   guion:"Haz un balance rápido de lo aprendido hasta ahora: brow análisis, diseño de ceja, pestañas comerciales, colorimetría, depilación Starpil. Muestra tus materiales, tus apuntes, tu energía. Transmite que cada semana es una capa más de conocimiento que te acerca a la profesional que quieres ser.",
+   copy:"5 semanas. 5 módulos. Análisis, diseño, pestañas, colorimetría y ahora depilación. Cada semana soy más la profesional que quiero ser.\n\nDale like si ves mi progreso y te inspira. 💜",
+   slides:[]}
+]},
+{week:6,mes:2,level:"Nivel 6",title:"Brow Laminado",sub:"Laminado de cejas: técnica, posicionamiento y diferenciación de marca",contents:[
+  {id:"6a",type:"video",num:"Reel 1",angle:"solucion",
+   title:"¿Cejas rebeldes? Existe una solución que dura semanas",
+   hook:"¿Cejas rebeldes que no se quedan en su lugar? Existe una solución — y yo la estoy aprendiendo.",
+   guion:"Muestra un antes de cejas desordenadas y explica que el Brow Laminado las fija, peina y da densidad visual por semanas. Aclara que no es química agresiva — con técnica y productos correctos es un proceso reconstructor. Genera expectativa mostrando resultados de referencia.",
+   copy:"Brow Laminado: el tratamiento que doma cejas rebeldes sin dañar el vello. Esta semana lo estoy aprendiendo al nivel que mis clientas merecen.\n\nGuarda este video si tienes cejas rebeldes. 📌",
+   slides:[]},
+  {id:"6b",type:"video",num:"Reel 2",angle:"producto",
+   title:"La inversión en productos y conocimiento para ofrecerte lo mejor",
+   hook:"¿Sabes la diferencia entre un Brow Laminado con alguien certificada vs. alguien que lo aprendió por YouTube?",
+   guion:"Habla sobre la inversión que hace una profesional seria: productos de calidad profesional, formación específica, tiempo de aplicación correcto. Un laminado mal hecho quiebra el vello. Uno bien hecho da cejas perfectas por 6-8 semanas. Estás haciendo esa inversión para que tus clientas lo reciban bien.",
+   copy:"El Brow Laminado mal hecho puede quebrar el vello. El bien hecho: cejas perfectas por 6-8 semanas. La diferencia está en la formación y los productos.\n\nSígueme para ver cuándo empiezo a tomar clientas. 🔔",
+   slides:[]},
+  {id:"6c",type:"carousel",num:"Carrusel 1",angle:"problema",
+   title:"5 mitos del Brow Laminado que debes soltar",
+   hook:"Todo lo que te dijeron sobre el Brow Laminado probablemente está equivocado.",
+   guion:"S1 = portada con hook. S2 al S5 = un mito por slide con su verdad. Mito 1: daña el vello. Mito 2: es solo una moda. Mito 3: solo para cejas gruesas. Mito 4: cualquiera puede hacerlo. S6 = por qué la formación importa y lo que tú estás aprendiendo para desmitificar estos errores.",
+   copy:"Cuatro mitos que siguen circulando sobre el Brow Laminado — y la verdad detrás de cada uno.\n\nComparte con alguien que crea alguno de estos mitos. 💜",
+   slides:[
+     "Todo lo que te dijeron sobre el Brow Laminado puede estar equivocado (PORTADA)",
+     "Mito 1: 'Daña el vello' → Con técnica y productos correctos, es reconstructor.",
+     "Mito 2: 'Es solo una moda' → Soluciona un problema real de cejas rebeldes.",
+     "Mito 3: 'Solo para cejas gruesas' → Funciona en todo tipo de vello.",
+     "Mito 4: 'Cualquiera lo puede hacer' → Requiere formación técnica específica.",
+     "Por eso yo estudio: para darte la verdad y el resultado correcto."
+   ]},
+  {id:"6d",type:"carousel",num:"Carrusel 2",angle:"solucion",
+   title:"Henna vs. Brow Laminado: ¿cuál necesitas tú?",
+   hook:"¿Henna o Brow Laminado? Son para objetivos completamente diferentes — ¿sabes cuál es para ti?",
+   guion:"S1 = portada con hook. S2 = Henna: para colorear y definir el vello. S3 = Brow Laminado: para fijar, peinar y dar densidad visual. S4 = si tienes cejas con poco color, henna. S5 = si tienes cejas rebeldes o desalineadas, laminado. S6 = una profesional certificada sabe combinarlas según cada caso.",
+   copy:"Henna y Brow Laminado no son lo mismo — y confundirlos puede darte el resultado equivocado.\n\nGuarda este post para tu próxima cita. 📌",
+   slides:[
+     "¿Henna o Brow Laminado? Son para cosas completamente diferentes (PORTADA)",
+     "Henna: para colorear y dar definición al vello.",
+     "Brow Laminado: para fijar, peinar y dar densidad visual.",
+     "¿Poco color en tus cejas? → La henna es tu aliada.",
+     "¿Cejas rebeldes o desalineadas? → El laminado es tu opción.",
+     "Una profesional certificada sabe cuál recomendar para tu caso específico."
+   ]},
+  {id:"6e",type:"video",num:"Reel 3",angle:"mentalidad",
+   title:"Semana 6 — cuando el negocio empieza a tomar forma real",
+   hook:"¿Cuándo se siente real el negocio que estás construyendo? Para mí fue esta semana.",
+   guion:"Habla sobre cómo el conocimiento técnico empieza a conectarse con el negocio: ya sabes lo que vale tu trabajo, entiendes por qué ciertos servicios tienen el precio que tienen, empiezas a pensar en tu menú de servicios. La certificación no solo enseña técnica — enseña a construir un negocio rentable.",
+   copy:"Ya no solo aprendo técnica — aprendo a pensar como empresaria. A saber cuánto vale mi trabajo y por qué. Eso también se estudia.\n\nDale like si también crees que estudiar es la mejor inversión. 💜",
+   slides:[]},
+  {id:"6f",type:"carousel",num:"Carrusel 3",angle:"problema",
+   title:"¿Por qué el Brow Laminado barato debería hacerte pensar?",
+   hook:"¿Por qué el Brow Laminado de precio muy bajo debería hacerte pensar dos veces antes de reservar?",
+   guion:"S1 = portada con hook. S2 = lo que requiere un Brow Laminado profesional: productos certificados, formación, tiempo correcto, personalización. S3 = qué se sacrifica cuando el precio es muy bajo. S4 = consecuencias en el vello de un laminado mal hecho. S5 = la diferencia entre precio y valor. S6 = invierte en quien estudia para atenderte.",
+   copy:"Un precio muy bajo en belleza casi siempre significa atajos — y esos atajos los paga tu piel y tu vello.\n\nComparte con quien siempre elige el más barato. 👇",
+   slides:[
+     "¿Por qué el Brow Laminado muy barato debería hacerte pensar? (PORTADA)",
+     "Un Brow Laminado profesional requiere productos certificados de calidad.",
+     "También requiere formación técnica específica — no se aprende en un día.",
+     "Y tiempo de aplicación correcto — los atajos dañan el vello.",
+     "Un precio muy bajo casi siempre significa que algo falta.",
+     "Invierte en quien estudia para atenderte. 💜"
+   ]}
+]},
+{week:7,mes:2,level:"Nivel 7",title:"Prueba Final de Cejas",sub:"Examen práctico de diseño de cejas — primer gran logro",contents:[
+  {id:"7a",type:"video",num:"Reel 1",angle:"mentalidad",
+   title:"HOY es la prueba final de cejas — y estoy lista",
+   hook:"HOY es el día. Prueba final del módulo de cejas. ¿Cómo me siento? Te lo cuento.",
+   guion:"Vlog del día de la prueba. Muestra tus apuntes, el camino a la academia, los nervios, cómo respiras antes de entrar. Transmite emoción honesta. Invita a ver el resultado en el siguiente video.",
+   copy:"7 semanas de formación resumidas en una prueba práctica. Nervios, emoción y preparación.\n\nMándame buena energía y sígueme para ver cómo me fue. 🙏",
+   slides:[]},
+  {id:"7b",type:"video",num:"Reel 2",angle:"producto",
+   title:"Así entré — así salí: 7 semanas de diferencia",
+   hook:"De no conocer los 3 puntos del diseño de ceja a presentar una prueba final profesional. 7 semanas.",
+   guion:"Vlog del resultado de la prueba. Muestra el proceso: el diseño, la colorimetría, la depilación. Compara con tus primeros intentos. Habla de lo que cambió, de lo que aprendiste. Transmite con orgullo lo que lograste.",
+   copy:"El antes y el después no es solo en el resultado — es en el conocimiento que me traje. Esto es lo que 7 semanas de formación hacen.\n\nGuarda este video para cuando dudes si vale la pena estudiar. 📌",
+   slides:[]},
+  {id:"7c",type:"carousel",num:"Carrusel 1",angle:"mentalidad",
+   title:"7 semanas, 7 módulos — lo que logré en el primer mes",
+   hook:"7 semanas estudiando cejas de forma profesional. Esto es todo lo que aprendí.",
+   guion:"S1 = portada con hook. S2 al S7 = una semana por slide con el módulo y aprendizaje clave. Cierre apuntando a lo que sigue: el módulo de extensiones de pestañas.",
+   copy:"7 semanas. 7 módulos. Soy una versión más preparada de quien llegó el primer día.\n\nSígueme para ver lo que sigue — extensiones de pestañas. 👁️",
+   slides:[
+     "7 semanas de formación profesional en cejas — aquí el resumen (PORTADA)",
+     "Semana 1: Brow Análisis — el visagismo tiene más de 20 pasos.",
+     "Semana 2: Diseño de ceja — proporciones, puntos clave y técnica.",
+     "Semana 3: Pestañas comerciales pelo a pelo express.",
+     "Semana 4: Colorimetría — henna, tinte, mezclas y pigmentos.",
+     "Semanas 5-6: Depilación Starpil + Brow Laminado profesional.",
+     "Semana 7: Prueba final aprobada. Ahora viene lo mejor."
+   ]},
+  {id:"7d",type:"video",num:"Reel 3",angle:"solucion",
+   title:"Prueba final aprobada — ya ofrezco mis primeros servicios de cejas",
+   hook:"Prueba del módulo de cejas aprobada. Ya estoy lista para ofrecer mis primeros servicios.",
+   guion:"Anuncia que terminaste el módulo de cejas con evaluación profesional. Detalla brevemente los servicios que ya puedes ofrecer: diseño, colorimetría, depilación Starpil, Brow Laminado. Abre convocatoria para modelos de práctica con precio especial.",
+   copy:"Módulo de cejas completado con evaluación profesional. Ya estoy lista para mis primeros servicios.\n\nEscríbeme si quieres ser mi modelo de práctica. 💌",
+   slides:[]},
+  {id:"7e",type:"carousel",num:"Carrusel 2",angle:"problema",
+   title:"¿Por qué tus cejas nunca se ven iguales?",
+   hook:"¿Por qué nunca te quedan iguales las cejas? No es tu cara — es la técnica de quien las hace.",
+   guion:"S1 = portada con hook. S2 = el problema no es tu cara: es la falta de análisis previo. S3 = sin visagismo: se diseña con intuición, no con criterio. S4 = sin los 3 puntos: la simetría es imposible. S5 = sin conocer el tipo de vello: la depilación deforma el arco. S6 = lo que aprendí para que esto no le pase a mis clientas.",
+   copy:"La asimetría no es tu cara — es la falta de análisis de quien las hace. Una experta analiza antes de actuar.\n\nGuarda este post y compártelo con quien hace cejas. 📌",
+   slides:[
+     "¿Por qué tus cejas nunca quedan iguales? No es tu cara (PORTADA)",
+     "El problema es la falta de análisis previo — no tu rostro.",
+     "Sin visagismo: se diseña con intuición, no con criterio técnico.",
+     "Sin los 3 puntos de diseño: la simetría es imposible de garantizar.",
+     "Sin conocer el tipo de vello: la depilación deforma el arco natural.",
+     "Una experta analiza antes de actuar. Eso es lo que yo aprendí."
+   ]},
+  {id:"7f",type:"video",num:"Reel 4",angle:"mentalidad",
+   title:"Así se vive una prueba final en una certificación de belleza",
+   hook:"¿Cómo es vivir una prueba final en una certificación real de negocios en belleza? Te llevo.",
+   guion:"Vlog completo del día: el ambiente en la academia, la corrección de la instructora, la energía del grupo, el resultado. Muestra la certificación desde adentro de forma auténtica. Este contenido también sirve como publicidad orgánica para la academia.",
+   copy:"Esto es una certificación real desde adentro. La corrección, la presión, el resultado.\n\nSígueme para ver el módulo que viene: ¡extensiones de pestañas! 🔔",
+   slides:[]}
+]},
+{week:8,mes:2,level:"Nivel 8",title:"Extensiones Pelo a Pelo — Introducción",sub:"Módulo de extensiones: técnica, salud, adhesivos y responsabilidad profesional",contents:[
+  {id:"8a",type:"video",num:"Reel 1",angle:"problema",
+   title:"Las extensiones de pestañas son hermosas — pero tienen riesgos reales",
+   hook:"¿Sabías que unas extensiones de pestañas mal aplicadas pueden causarte problemas de salud reales?",
+   guion:"Habla de la responsabilidad que conlleva este servicio. Las extensiones aplican fibra sintética en cada pestaña natural una por una. Sin conocer contraindicaciones, tipos de ojo, adhesivos y técnica, el daño puede ser grave: quemaduras químicas, pérdida de pestaña, reacciones alérgicas. Quien lo hace sin formación no solo arriesga a su clienta — puede tener problemas legales.",
+   copy:"Las extensiones son un servicio que requiere formación real. Sin ella: quemaduras, pérdida de pestañas naturales, riesgo legal. Esta semana empiezo este módulo — con todo el respeto que merece.\n\nGuarda este video si usas o quieres usar extensiones. 📌",
+   slides:[]},
+  {id:"8b",type:"video",num:"Reel 2",angle:"problema",
+   title:"Por qué el 90% de las extensiones no duran lo que deberían",
+   hook:"Por qué el 90% de las clientas que se hacen extensiones no repiten — y cómo evitar ser parte de ese porcentaje.",
+   guion:"Explica los factores técnicos que determinan la retención: limpieza previa del párpado (sin limpieza no hay adhesión), área de contacto de 1 a 3mm, condiciones ambientales de temperatura y humedad, cuidados post-aplicación. Una lashista sin formación ignora la mayoría. Tú estás aprendiendo todos.",
+   copy:"La retención no es suerte — es técnica. Limpieza, adhesión, temperatura, humedad, cuidados. Una lashista sin formación ignora la mitad de estos factores.\n\nSígueme para aprender más sobre extensiones responsables. 🔔",
+   slides:[]},
+  {id:"8c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Extensiones clásicas vs. Fibras tecnológicas — la diferencia real",
+   hook:"¿Extensiones clásicas o Fibras tecnológicas? No es lo mismo — y la elección importa.",
+   guion:"S1 = portada con hook. S2 = fibra MINK clásica: base circular, curva desde la raíz, más versátil en colocación. S3 = fibra FLAT tecnológica: base plana, más ligera, mayor área de contacto. S4 = para qué tipo de pestaña es cada una. S5 = por qué la elección incorrecta puede dañar o decepcionar. S6 = lo que estás aprendiendo para elegir correctamente.",
+   copy:"Mink o FLAT — la elección incorrecta puede afectar la retención y la salud de tu pestaña natural.\n\nGuarda este carrusel para saber qué preguntarle a tu lashista. 📌",
+   slides:[
+     "¿Extensiones clásicas o Fibras tecnológicas? La diferencia importa (PORTADA)",
+     "Fibra MINK (clásica): base circular, curva desde raíz, colocación versátil.",
+     "Fibra FLAT (tecnológica): base plana, más ligera, mayor área de adhesión.",
+     "FLAT es ideal para pestañas sensibles o finas — menos peso, más retención.",
+     "La elección incorrecta compromete la retención y puede dañar la pestaña.",
+     "Una experta evalúa tu pestaña antes de elegir qué fibra usar."
+   ]},
+  {id:"8d",type:"video",num:"Reel 3",angle:"producto",
+   title:"La inversión real para ser lashista profesional",
+   hook:"Así se ve la inversión real para convertirte en lashista profesional — por dentro.",
+   guion:"Muestra tu kit de materiales profesionales: fibras PBT certificadas, adhesivos de cianocrilato, pinzas de precisión, higrómetro, kit de limpieza. Explica para qué sirve cada uno. Transmite que esto no es un kit de redes sociales — es equipamiento profesional.",
+   copy:"Fibras PBT, adhesivos de cianocrilato, higrómetro, pinzas de precisión. No es un kit de $20 — es equipamiento profesional. Porque mis clientas lo merecen.\n\nDale like si admiras la inversión en preparación real. 💜",
+   slides:[]},
+  {id:"8e",type:"carousel",num:"Carrusel 2",angle:"problema",
+   title:"¿Tu lashista sabe esto antes de tocarte las pestañas?",
+   hook:"Antes de dejarte poner extensiones, tu lashista debería saber estas cosas — ¿las sabe la tuya?",
+   guion:"S1 = portada con hook. S2 al S6 = una cosa por slide que toda lashista profesional debe hacer antes del servicio: consulta completa, revisión de contraindicaciones (orzuelo, Demodex, conjuntivitis), conocer tipo de pestaña, elegir grosor correcto, párpado limpio. S7 = lo que tú estás aprendiendo a hacer en tu certificación.",
+   copy:"¿Tu lashista hace todo esto antes de ponerte extensiones? Si no — algo falta.\n\nComparte con alguien que va a hacerse extensiones sin investigar. 👇",
+   slides:[
+     "¿Tu lashista sabe esto antes de tocarte las pestañas? (PORTADA)",
+     "1. Hace una consulta completa e identifica contraindicaciones.",
+     "2. Revisa si hay orzuelo, conjuntivitis o ácaros (Demodex).",
+     "3. Conoce tu tipo de pestaña, dirección y salud del folículo.",
+     "4. Elige el grosor correcto — el 0.25mm puede dañar tu pestaña natural.",
+     "5. Aplica sobre párpado perfectamente limpio — sin limpieza no hay retención.",
+     "Esto es el estándar profesional real. Exígelo."
+   ]},
+  {id:"8f",type:"video",num:"Reel 4",angle:"mentalidad",
+   title:"Semana 8: empezó el módulo que más esperaba",
+   hook:"Empecé el módulo de extensiones. Lo primero que aprendí me dejó sin palabras.",
+   guion:"Comparte la sorpresa de que el módulo empieza con todo el protocolo de salud, seguridad y responsabilidad legal — antes de tocar una sola fibra. Habla de contraindicaciones, tipos de ojo, enfermedades del folículo. Reflexiona sobre por qué este nivel de profundidad es lo que diferencia a una formación real.",
+   copy:"Empezamos extensiones con algo inesperado: salud, seguridad y responsabilidad legal — antes de tocar una fibra. Porque aplicar sin este conocimiento no es solo ser principiante: es un riesgo real.\n\nSígueme para ver mis primeras prácticas. 👁️",
+   slides:[]}
+]},
+// MES 3
+{week:9,mes:3,level:"Nivel 9",title:"Diseño de Miradas",sub:"Diseño personalizado según tipo de ojo y correcciones visuales",contents:[
+  {id:"9a",type:"video",num:"Reel 1",angle:"problema",
+   title:"¿Por qué tus extensiones se ven mal aunque sean buenas?",
+   hook:"¿Por qué unas extensiones de calidad se ven cansadas, tristes o desbalanceadas?",
+   guion:"Explica que el problema no es el producto — es el diseño. Una extensión larga en un ojo descendente lo hace ver más caído. Una curva fuerte en un ojo redondo lo hace ver más pequeño. El diseño de miradas es el arte de elegir curva, longitud y mapa según la forma real del ojo. Esto es lo que estás estudiando.",
+   copy:"El problema no es la extensión — es el diseño. Sin estudiar el ojo de cada clienta, el resultado puede hacer exactamente lo contrario de lo que busca.\n\nGuarda este video antes de tu próxima cita. 📌",
+   slides:[]},
+  {id:"9b",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"¿Cómo saber si tus extensiones están bien diseñadas?",
+   hook:"¿Cómo saber si tus extensiones de pestañas están bien hechas o están arruinando tu mirada?",
+   guion:"S1 = portada con hook. S2-S4 = señales de extensiones BIEN diseñadas: aisladas, curva correcta para el ojo, sin huecos. S5-S6 = señales de extensiones MAL diseñadas: bases blancas, pegadas entre sí, diseño genérico. S7 = lo que aprende una lashista profesional para garantizar el primer tipo.",
+   copy:"Aprende a distinguir extensiones bien hechas de las que no lo están — y exige el nivel que mereces.\n\nGuarda esta guía antes de tu próxima cita. 📌",
+   slides:[
+     "¿Cómo saber si tus extensiones están bien hechas? (PORTADA)",
+     "✅ Cada extensión aislada — sin pegar 2 pestañas naturales juntas.",
+     "✅ La curva levanta la mirada según TU tipo de ojo, no el de todas.",
+     "✅ Sin huecos en comisura ni lagrimal — diseño completo.",
+     "❌ Bases blancas o pegamento visible — mal manejo del adhesivo.",
+     "❌ Pestañas cruzadas o pegadas entre sí — sin aislamiento.",
+     "Una mirada bien diseñada no deja rastro del trabajo — solo el resultado."
+   ]},
+  {id:"9c",type:"video",num:"Reel 2",angle:"problema",
+   title:"Ojos descendentes y extensiones mal diseñadas",
+   hook:"¿Tienes ojos descendentes y cada vez que te haces extensiones te ves más cansada? Tiene solución.",
+   guion:"Explica con el ejemplo del ojo descendente: su comisura está por debajo del lagrimal. Si la lashista aplica el diseño incorrecto, refuerza la caída. Con el mapa correcto — curva y distribución personalizados — el mismo ojo puede verse levantado. Esto es lo que estudias esta semana.",
+   copy:"Un ojo descendente con el diseño incorrecto se ve más cansado. Con el correcto — levantado y expresivo. La diferencia es formación.\n\nSígueme para ver mis prácticas de diseño de miradas. 🔔",
+   slides:[]},
+  {id:"9d",type:"carousel",num:"Carrusel 2",angle:"solucion",
+   title:"Protocolo de limpieza para que tus extensiones duren más",
+   hook:"¿Quieres que tus extensiones duren más? Este protocolo de limpieza puede duplicar su duración.",
+   guion:"S1 = portada con hook. S2-S7 = pasos del protocolo: limpiar con Lash Mousse, no usar aceites, secar con aire frío, no dormir boca abajo, retoque cada 3-4 semanas, la retención es 50% técnica y 50% cuidado.",
+   copy:"La retención de extensiones es 50% técnica y 50% cuidado. Tú controlas la mitad del resultado.\n\nGuarda y comparte con alguien que tiene extensiones. 📌",
+   slides:[
+     "¿Quieres que tus extensiones duren más? Sigue este protocolo (PORTADA)",
+     "Limpia con Lash Mousse y brocha suave 2-3 veces por semana.",
+     "Nada de aceites ni desmaquillantes con aceite cerca del ojo.",
+     "Sécalas con aire frío — nunca calor, nunca frotar.",
+     "No duermas boca abajo — destruyes el diseño y la retención.",
+     "Retoque cada 3-4 semanas para mantener el resultado siempre.",
+     "La retención es 50% técnica y 50% los cuidados de la clienta."
+   ]},
+  {id:"9e",type:"video",num:"Reel 3",angle:"producto",
+   title:"Mis primeras prácticas de diseño de miradas",
+   hook:"Mis primeras prácticas de diseño de miradas. Esto es lo más honesto que puedo mostrarte.",
+   guion:"Documenta tu primera sesión de diseño de miradas en maniquí o modelo: el aislamiento, la elección de curva, el mapa del ojo. No tiene que ser perfecto — lo valioso es el proceso honesto. Muestra la concentración, la metodología que ya tienes en la cabeza.",
+   copy:"Primera sesión de diseño de miradas. No es perfecto — es el proceso real de quien está aprendiendo con método.\n\nDale like si valoras ver el proceso honesto. 💜",
+   slides:[]},
+  {id:"9f",type:"carousel",num:"Carrusel 3",angle:"problema",
+   title:"Tipos de ojo — ¿cuál es el tuyo y qué diseño te favorece?",
+   hook:"¿Sabes qué tipo de ojo tienes? Esto cambia completamente el diseño de extensiones que te favorece.",
+   guion:"S1 = portada con hook. S2-S7 = un tipo de ojo por slide con el diseño que le favorece: almendrado (versátil), redondo (alargador), descendente (levantador), prominente (curvas suaves), asiático (apertura central). S7 = conclusión sobre por qué una lashista sin formación aplica el mismo diseño a todos.",
+   copy:"El tipo de ojo determina el diseño. Aplicar el mismo look a todo el mundo es la razón por la que muchas extensiones no favorecen.\n\nGuarda esta guía para tu próxima cita. 📌",
+   slides:[
+     "¿Sabes qué tipo de ojo tienes? Esto cambia tu diseño de extensiones (PORTADA)",
+     "Ojo almendrado: el más versátil. Casi cualquier diseño funciona.",
+     "Ojo redondo: necesita diseño alargador para equilibrar.",
+     "Ojo descendente: diseño levantador con énfasis en comisura exterior.",
+     "Ojo prominente: curvas suaves para no agrandar visualmente.",
+     "Ojo asiático: diseño de apertura con concentración al centro.",
+     "Una lashista sin formación aplica el mismo diseño a todos — grave error."
+   ]},
+  {id:"9g",type:"video",num:"Reel 4",angle:"mentalidad",
+   title:"Las extensiones no son para todo el mundo — lo entendí esta semana",
+   hook:"¿Sabías que las extensiones de pestañas no son para todo el mundo? Esta semana lo entendí a fondo.",
+   guion:"Habla de las contraindicaciones reales: alergia al cianocrilato, Demodex activo, orzuelo, conjuntivitis, pestañas muy debilitadas. Una profesional responsable dice NO cuando debe. Ese también es un aprendizaje de la formación: la ética del servicio.",
+   copy:"A veces el servicio más profesional es decir que no. Contraindicaciones, salud ocular, ética: también se estudia.\n\nSígueme para más educación sobre extensiones responsables. 🔔",
+   slides:[]},
+  {id:"9h",type:"carousel",num:"Carrusel 4",angle:"solucion",
+   title:"Grosor de extensiones — cuál es para tu pestaña",
+   hook:"¿Sabes qué grosor de extensión necesita tu pestaña? Esto determina si el servicio te beneficia o te daña.",
+   guion:"S1 = portada con hook. S2 = pestaña fina: grosor 0.10 o FLAT 0.15. S3 = pestaña mediana: 0.12 o 0.15. S4 = pestaña gruesa: 0.15 o 0.20 combinados. S5 = advertencia sobre el 0.25mm. S6 = cómo una experta evalúa antes de elegir. S7 = conexión con la formación.",
+   copy:"El grosor incorrecto puede dañar tu pestaña natural de forma permanente. Una experta evalúa antes de elegir.\n\nComparte con quien tiene extensiones puestas ahora mismo. 👇",
+   slides:[
+     "¿Sabes qué grosor de extensión necesita tu pestaña? (PORTADA)",
+     "Pestaña fina o débil: grosor 0.10 o fibra FLAT 0.15.",
+     "Pestaña mediana y saludable: grosor 0.12 o 0.15.",
+     "Pestaña gruesa y fuerte: 0.15 o 0.20 combinados según la zona.",
+     "⚠️ El grosor 0.25mm no se recomienda — excesivo peso para la pestaña natural.",
+     "Una experta mide y evalúa antes de elegir. No improvisa.",
+     "Esto es lo que aprendo esta semana para personalizar cada servicio."
+   ]},
+  {id:"9i",type:"video",num:"Reel 5",angle:"solucion",
+   title:"Semana 9: el módulo que más me emocionaba",
+   hook:"Semana 9 — el módulo que más esperaba: diseño de miradas personalizado.",
+   guion:"Haz un resumen energético de lo que significa el diseño de miradas: todo lo que aprendiste sobre fibras, adhesivos y técnica ahora se integra en un diseño único para cada ojo. Habla del estudio de la mirada como proceso completo — fotografías, análisis, diagnóstico, diseño.",
+   copy:"Todo lo que aprendí sobre fibras, adhesivos y técnica ahora tiene un propósito: diseñar miradas únicas para cada ojo. Esto es el nivel que busco.\n\nDale like si te sorprende la ciencia detrás de las extensiones. 💜",
+   slides:[]}
+]},
+{week:10,mes:3,level:"Nivel 10",title:"Comisuras y Lagrimales",sub:"Técnica en zonas difíciles — primeras prácticas en modelo real",contents:[
+  {id:"10a",type:"video",num:"Reel 1",angle:"problema",
+   title:"La zona más difícil de las extensiones",
+   hook:"El verdadero reto de las extensiones no es el centro del ojo — son las comisuras y los lagrimales.",
+   guion:"Explica por qué estas zonas son técnicamente las más desafiantes: vello más fino, más corto, más difícil de aislar. El 80% de los huecos y extensiones mal ubicadas están aquí. Una lashista que domina estas zonas garantiza un diseño sin huecos y retención uniforme. Esto es lo que practicas esta semana.",
+   copy:"El 80% de los huecos en extensiones están en comisura y lagrimal. Dominar estas zonas es lo que separa un resultado correcto de uno impecable.\n\nGuarda este video si siempre te quedan mal las comisuras. 📌",
+   slides:[]},
+  {id:"10b",type:"video",num:"Reel 2",angle:"producto",
+   title:"Mis primeras prácticas en modelo real",
+   hook:"Primera vez practicando extensiones de pestañas en modelo real. Así va el avance.",
+   guion:"Documenta tu primera sesión en modelo real. Habla de la diferencia con el maniquí: el párpado se mueve, hay tiempo real, hay presión. Muestra el proceso con honestidad. El valor está en la autenticidad del aprendizaje documentado.",
+   copy:"Maniquí vs. modelo real — la diferencia es todo. Esta semana practico con tiempo real, presión real y aprendizaje real.\n\nSígueme para ver cómo avanzo hacia el servicio profesional. 🔔",
+   slides:[]},
+  {id:"10c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"¿Por qué se caen las extensiones de las comisuras primero?",
+   hook:"¿Por qué siempre se caen las extensiones de las comisuras antes que las del centro? Tiene explicación técnica.",
+   guion:"S1 = portada con hook. S2 = el vello de comisura es más fino y corto: menos área de contacto. S3 = es la zona de más roce al dormir. S4 = la humedad del lagrimal acelera el adhesivo. S5 = una mala aplicación en esta zona se nota en 3-4 días. S6 = tip de retención: limpieza y no frotar. S7 = cómo una lashista certificada trabaja esta zona.",
+   copy:"La comisura no es mala suerte — es una zona técnica que requiere conocimiento específico para trabajarla bien.\n\nGuarda esta información para tu próxima cita. 📌",
+   slides:[
+     "¿Por qué las comisuras siempre se caen primero? La explicación técnica (PORTADA)",
+     "El vello de comisura es más fino y corto — menos superficie de adhesión.",
+     "Es la zona de mayor roce: al dormir, al refregar los ojos.",
+     "La humedad del lagrimal acelera la polimerización del adhesivo.",
+     "Una aplicación incorrecta aquí se evidencia a los 3-4 días.",
+     "Tip: limpieza diaria en esta zona + no frotar = más días de retención.",
+     "Una lashista certificada trabaja comisura y lagrimal con técnica específica."
+   ]},
+  {id:"10d",type:"video",num:"Reel 3",angle:"mentalidad",
+   title:"Lo que nadie te dice cuando empiezas a practicar extensiones",
+   hook:"Lo más inesperado que me pasó esta semana practicando extensiones de pestañas.",
+   guion:"Cuenta con honestidad: las primeras sesiones en modelo pueden durar 4-5 horas. El pulso se afina con práctica. El adhesivo cambia con la temperatura. El aprendizaje real está en cada error que corriges. Este contenido conecta emocionalmente con cualquiera que esté en un proceso de aprendizaje.",
+   copy:"Nadie te dice que las primeras sesiones en modelo duran horas, que el adhesivo no siempre coopera, que el aprendizaje real está en los errores. Pero cada uno vale.\n\nDale like si valoras la honestidad del proceso. 💜",
+   slides:[]},
+  {id:"10e",type:"carousel",num:"Carrusel 2",angle:"problema",
+   title:"¿Tienes ácaros en tus pestañas? Señales de alerta",
+   hook:"¿Sabías que los ácaros en las pestañas (Demodex) pueden arruinar tu servicio de extensiones?",
+   guion:"S1 = portada con hook. S2 = qué es el Demodex: microorganismo en piel y folículo. S3 = causa: falta de higiene y exceso de grasa. S4 = señales de alerta: costras, picazón, caída excesiva. S5 = con Demodex activo no se aplican extensiones. S6 = protocolo: limpieza Lash Mousse 3-5x al día por una semana. S7 = cómo una profesional lo detecta antes del servicio.",
+   copy:"Los ácaros en las pestañas son reales — y una lashista profesional sabe detectarlos antes de tocar el párpado.\n\nComparte con alguien que use extensiones con frecuencia. 👇",
+   slides:[
+     "¿Sabías que los ácaros en tus pestañas pueden afectar tu servicio? (PORTADA)",
+     "Demodex: microorganismos que viven en la piel y se alimentan de células muertas.",
+     "El exceso de grasa o maquillaje puede causar sobrepoblación y daño al folículo.",
+     "Señales: costras en la base del vello, picazón, caída excesiva de pestañas.",
+     "Con Demodex activo: NO se aplican extensiones de pestañas.",
+     "Protocolo: limpieza con Lash Mousse 3-5 veces al día durante 1 semana.",
+     "Una profesional lo detecta en la consulta previa — antes de empezar."
+   ]},
+  {id:"10f",type:"video",num:"Reel 4",angle:"solucion",
+   title:"Mi avance semana a semana — del maniquí al modelo real",
+   hook:"Del maniquí a mis primeras prácticas en modelo real. Semana 10.",
+   guion:"Comparativa visual de tu progreso: velocidad, precisión en el aislamiento, control del adhesivo. Todo mejora con práctica dirigida. Documenta este camino porque al final del módulo tendrás un antes y después poderoso.",
+   copy:"La velocidad mejora. El aislamiento mejora. El control del adhesivo mejora. Así se ve la práctica consciente con formación técnica de base.\n\nSígueme para ver el resultado final. 👁️",
+   slides:[]},
+  {id:"10g",type:"carousel",num:"Carrusel 3",angle:"solucion",
+   title:"Curvas de extensiones — cuál elegir según tu pestaña",
+   hook:"¿Sabes qué curva de extensión necesitas? La respuesta depende de algo que muy pocas lashistas evalúan.",
+   guion:"S1 = portada con hook. S2-S6 = una curva por slide: B (muy natural), C (natural y versátil), CC (levanta sin dramatismo), D (dramática y definida). S6 = cómo elegir según dirección de la pestaña. S7 = caso especial: pestañas muy rizadas necesitan curva suave o FLAT por debajo.",
+   copy:"La curva incorrecta puede hacer que tus extensiones se entierren o no levanten la mirada. El detalle importa.\n\nGuarda esta guía antes de tu próxima cita. 📌",
+   slides:[
+     "¿Qué curva de extensión necesita tu pestaña? La guía completa (PORTADA)",
+     "Curva B: muy natural, ideal para pestañas que ya tienen rizo propio.",
+     "Curva C: natural y versátil — la más utilizada en extensiones clásicas.",
+     "Curva CC: levanta la mirada sin ser dramática — ideal para ojos caídos.",
+     "Curva D: rizada y definida para looks más intensos y dramáticos.",
+     "Pestañas caídas: necesitan CC o D para levantar la mirada.",
+     "Pestañas muy rizadas: usar B o C para que la extensión no se 'entierre'."
+   ]},
+  {id:"10h",type:"video",num:"Reel 5",angle:"mentalidad",
+   title:"Semana 10: lo que me falta y por qué estoy más lista que nunca",
+   hook:"Semana 10 — sé lo que me falta y eso me hace más fuerte.",
+   guion:"Reflexión honesta sobre el proceso de formación: ya tienes el conocimiento, ahora se trata de velocidad, precisión y consistencia. El negocio que estás construyendo ya tiene cimientos sólidos. Lo que falta es práctica consciente — y eso es exactamente lo que estás haciendo.",
+   copy:"El conocimiento ya está. Ahora es velocidad, precisión y consistencia. Eso se logra practicando con conciencia.\n\nDale like si también estás en un proceso de crecimiento. 💜",
+   slides:[]},
+  {id:"10i",type:"carousel",num:"Carrusel 4",angle:"producto",
+   title:"Lo que incluye una consulta profesional de extensiones",
+   hook:"¿Qué debería incluir una consulta de extensiones con una profesional real? Más de lo que imaginas.",
+   guion:"S1 = portada con hook. S2-S6 = pasos de la consulta: historial de salud y alergias, prueba de parche, evaluación del ojo y folículo, diseño personalizado, elección de fibra y curva, cuidados post-servicio. S7 = por qué esto no es un lujo sino el estándar real.",
+   copy:"Una consulta profesional de extensiones no debería durar 5 minutos. Si lo hace — pregúntate qué se está saltando.\n\nComparte con quien nunca ha recibido este nivel de atención. 👇",
+   slides:[
+     "¿Qué incluye una consulta profesional de extensiones? (PORTADA)",
+     "1. Historial de salud, alergias y medicamentos — prueba de parche si aplica.",
+     "2. Evaluación completa del ojo: tipo, dirección del vello, estado del folículo.",
+     "3. Diseño personalizado según forma de ojo y objetivo de la clienta.",
+     "4. Elección de fibra, grosor y curva según el análisis realizado.",
+     "5. Explicación detallada de cuidados post-servicio.",
+     "Esto no es un lujo — es el estándar de una profesional real."
+   ]}
+]},
+{week:11,mes:3,level:"Nivel 11",title:"Fibras Tecnológicas vs. Volumen Ruso",sub:"Técnicas avanzadas de volumen — resultados, posicionamiento y primeras ventas",contents:[
+  {id:"11a",type:"video",num:"Reel 1",angle:"problema",
+   title:"Todo lo que te dijeron sobre el Volumen Ruso puede estar mal",
+   hook:"Todo lo que creías saber sobre el Volumen Ruso probablemente no es del todo correcto.",
+   guion:"Desmonta los 3 mitos más comunes: pesa mucho, daña la pestaña, es solo para ojos grandes. Con técnica correcta el Volumen Ruso es seguro y versátil. Esta semana estudias Fibras Tecnológicas vs. Volumen Ruso para poder elegir con criterio profesional.",
+   copy:"'Pesa mucho', 'daña la pestaña', 'solo para ojos grandes' — los tres mitos más frecuentes sobre el Volumen Ruso. Y los tres son incorrectos cuando se aplica con técnica.\n\nGuarda este video para compartir con quien cree estos mitos. 📌",
+   slides:[]},
+  {id:"11b",type:"video",num:"Reel 2",angle:"producto",
+   title:"Mis primeros resultados — antes y después real",
+   hook:"Antes y después real, hecho por mí. Semana 11 de certificación.",
+   guion:"Muestra tu primer juego completo documentado: el tiempo de servicio, el diseño aplicado, la retención a los días. No tiene que ser perfecto. Lo valioso es que estás mostrando resultados reales y avance real. Posiciónate como quien ya puede ofrecer este servicio.",
+   copy:"No es perfecto — es honesto. Y muestra exactamente en qué punto del proceso estoy. Primeros resultados documentados: esto es lo que 11 semanas de formación producen.\n\nEscríbeme si quieres ser de mis primeras clientas. 💌",
+   slides:[]},
+  {id:"11c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Volumen Ruso vs. Fibras Tecnológicas — cuál es para ti",
+   hook:"Volumen Ruso o Fibras Tecnológicas: ¿cuál te da más resultado sin comprometer tu pestaña?",
+   guion:"S1 = portada con hook. S2 = clásica: 1 extensión por pestaña natural, look natural. S3 = FLAT: base plana, más ligera, mayor adhesión. S4 = Volumen Ruso: abanico de 2-6 fibras, look dramático. S5 = cuándo usar FLAT vs. VR. S6 = ninguna es mejor: depende del ojo. S7 = una experta sabe cuál recomendar.",
+   copy:"Clásica, FLAT o Volumen Ruso — la correcta depende de tu pestaña natural y el look que buscas. No hay una que sea mejor para todas.\n\nGuarda esta guía para tu próxima elección. 📌",
+   slides:[
+     "Volumen Ruso vs. Fibras Tecnológicas — ¿cuál es para ti? (PORTADA)",
+     "Fibras Clásicas: 1 extensión por pestaña natural. Look natural y definido.",
+     "Fibras FLAT: base plana, más ligeras, mayor área de contacto y adhesión.",
+     "Volumen Ruso: abanico de 2-6 fibras por pestaña. Look dramático e intenso.",
+     "FLAT ideal para pestañas finas o sensibles — volumen sin exceso de peso.",
+     "VR ideal para quien busca una mirada muy definida e impactante.",
+     "Ninguna es mejor — cada una es correcta para diferente ojo y objetivo."
+   ]},
+  {id:"11d",type:"video",num:"Reel 3",angle:"mentalidad",
+   title:"Mi precio de lanzamiento — por qué es una oportunidad real",
+   hook:"¿Qué harías si pudieras acceder a extensiones de calidad profesional a precio de práctica?",
+   guion:"Explica que después de 11 semanas de formación ya tienes resultados que mostrar y abres tus primeras citas a precio especial de práctica. Aclara que la calidad es real — lo que buscas es afinar velocidad. Pronto los precios serán los del mercado.",
+   copy:"11 semanas de formación y ya tengo resultados reales. Abro mis primeras citas a precio de práctica — calidad real, precio accesible. Esta oportunidad es por tiempo limitado.\n\nEscríbeme 'QUIERO' para más información. 💌",
+   slides:[]},
+  {id:"11e",type:"carousel",num:"Carrusel 2",angle:"problema",
+   title:"¿Por qué las extensiones profesionales toman tiempo?",
+   hook:"¿Sabías que un servicio de extensiones profesional puede tardar de 1.5 a 3 horas? ¿Por qué?",
+   guion:"S1 = portada con hook. S2-S5 = etapas del servicio con tiempo estimado: consulta y evaluación, limpieza profunda, colocación, revisión y sellado. S6 = lo que hace quien promete extensiones en 30 minutos. S7 = por qué el tiempo es parte integral de la calidad.",
+   copy:"Las extensiones en 30 minutos casi siempre implican atajos — y esos atajos los siente tu ojo.\n\nComparte con quien siempre busca el más rápido. 👇",
+   slides:[
+     "¿Por qué las extensiones profesionales toman tanto tiempo? (PORTADA)",
+     "Consulta y evaluación del ojo: 10-15 minutos.",
+     "Limpieza profunda del párpado: 10-15 minutos.",
+     "Colocación: 1-2.5 horas según técnica y densidad.",
+     "Revisión final y sellado con nanomister: 10 minutos.",
+     "Quien promete 'extensiones en 30 minutos' está haciendo atajos en tu ojo.",
+     "El tiempo no es un problema — es parte de lo que garantiza el resultado."
+   ]},
+  {id:"11f",type:"video",num:"Reel 4",angle:"solucion",
+   title:"El adhesivo y la humedad — lo que nadie te explica",
+   hook:"¿Sabías que el adhesivo de extensiones cambia completamente de comportamiento según la temperatura y la humedad?",
+   guion:"Explica de forma simple y visual: el adhesivo de cianocrilato se polimeriza con la humedad. Con humedad alta seca muy rápido — hay que ser ágil. Con humedad baja seca lento — puede causar stickies (pestañas pegadas). Una lashista profesional usa higrómetro y controla el ambiente. Eso también se estudia.",
+   copy:"El adhesivo no es el mismo a 20°C con 45% de humedad que a 30°C con 75%. Una lashista que no lo sabe trabaja con variables que no controla.\n\nDale like si esto te sorprendió tanto como a mí. 💜",
+   slides:[]},
+  {id:"11g",type:"carousel",num:"Carrusel 3",angle:"mentalidad",
+   title:"Lashista certificada vs. sin formación — la diferencia que importa",
+   hook:"¿Por qué la diferencia entre una lashista certificada y una sin formación puede costarte la salud de tu ojo?",
+   guion:"S1 = portada con hook. S2-S6 = comparaciones directas: contraindicaciones, adhesivo, detección de patologías, personalización del diseño, responsabilidad legal. S7 = tu visión y salud ocular valen más que un precio bajo.",
+   copy:"No es solo el resultado estético — es la salud de tu ojo. Elige a quien estudió para cuidarla.\n\nGuarda y comparte — puede proteger la salud de alguien. 📌",
+   slides:[
+     "Lashista certificada vs. sin formación — la diferencia que importa (PORTADA)",
+     "Certificada: conoce contraindicaciones y sabe cuándo decir NO.",
+     "Sin formación: aplica a cualquiera sin evaluar si es candidata.",
+     "Certificada: controla adhesivo según temperatura y humedad con higrómetro.",
+     "Sin formación: usa lo que consigue como puede — variables sin controlar.",
+     "Certificada: detecta Demodex, orzuelo, conjuntivitis antes del servicio.",
+     "Tu visión y tu salud ocular valen más que ahorrar en el servicio."
+   ]},
+  {id:"11h",type:"video",num:"Reel 5",angle:"producto",
+   title:"Semana 11: lo más avanzado que practico hasta ahora",
+   hook:"Semana 11 — esto es lo más técnico que he practicado en toda mi formación.",
+   guion:"Documenta tu práctica de Fibras Tecnológicas y los primeros abanicos de Volumen Ruso. Habla de la precisión que requiere armar un abanico de 3-5 fibras simétricas. Muestra la evolución honesta de tus primeras sesiones.",
+   copy:"Armar un abanico de 5 fibras simétricas con pinzas de precisión no se logra el primer día. Esta semana practico lo más técnico de la certificación.\n\nSígueme para ver la prueba final. 🔔",
+   slides:[]},
+  {id:"11i",type:"carousel",num:"Carrusel 4",angle:"solucion",
+   title:"7 cuidados post-extensiones que duplican la retención",
+   hook:"¿Quieres que tus extensiones duren el doble? Empieza por los cuidados — la mayoría lo hace mal.",
+   guion:"S1 = portada con hook. S2-S8 = 7 cuidados numerados con la razón técnica detrás de cada uno: no mojar 24-48h, Lash Mousse libre de aceite, secado con aire frío, no dormir boca abajo, sin aceites, no jalar, retoque cada 3 semanas.",
+   copy:"La retención no es suerte — es protocolo. 7 cuidados que marcan la diferencia entre 2 semanas y 4 semanas de resultado.\n\nGuarda esta guía para después de tu próxima cita. 📌",
+   slides:[
+     "7 cuidados post-extensiones que duplican la retención (PORTADA)",
+     "1. No mojar las primeras 24-48h — el adhesivo necesita curar completamente.",
+     "2. Limpiar con Lash Mousse libre de aceite 3x por semana.",
+     "3. Secar con aire frío — nunca calor, nunca frotar con toalla.",
+     "4. No dormir boca abajo ni lateral sobre el ojo.",
+     "5. Sin aceites ni desmaquillantes con aceite cerca del ojo.",
+     "6. No jalar ni frotar — pierdes la extensión y la pestaña natural.",
+     "7. Retoque cada 3 semanas para mantener siempre un resultado perfecto."
+   ]}
+]},
+{week:12,mes:3,level:"Nivel 12",title:"Prueba Final de Extensiones",sub:"Examen práctico de extensiones pelo a pelo — documentar todo el proceso",contents:[
+  {id:"12a",type:"video",num:"Reel 1",angle:"mentalidad",
+   title:"La prueba final de extensiones — el día más esperado",
+   hook:"HOY es la prueba final de extensiones de pestañas. Te llevo conmigo.",
+   guion:"Vlog completo del día: llegada a la academia, preparación del espacio, el proceso extensión a extensión, la corrección de la instructora, el resultado final, la reacción de la modelo. Este contenido es potente y auténtico.",
+   copy:"Extensión por extensión, zona por zona, detalle por detalle. Esto es lo que 12 semanas de formación producen.\n\nMira hasta el final para ver la reacción de mi modelo. 👁️",
+   slides:[]},
+  {id:"12b",type:"video",num:"Reel 2",angle:"producto",
+   title:"Primera práctica vs. prueba final — así se ve la diferencia",
+   hook:"¿Recuerdas mis primeras extensiones? Esto es lo que 12 semanas de formación hacen.",
+   guion:"Comparativa visual directa entre tu primera práctica y la prueba final. Habla de la velocidad, la calidad del aislamiento, el manejo del adhesivo, el diseño completo. Transmite que la diferencia no es talento — es práctica dirigida por formación técnica real.",
+   copy:"Primera práctica vs. prueba final. La diferencia no es el talento — es la formación técnica que lo guía.\n\nGuarda este video para cuando dudes si vale la pena estudiar. 📌",
+   slides:[]},
+  {id:"12c",type:"carousel",num:"Carrusel 1",angle:"mentalidad",
+   title:"Mis miedos al empezar extensiones — y cómo los superé",
+   hook:"Mis mayores miedos al comenzar el módulo de extensiones — y cómo la formación los fue resolviendo uno a uno.",
+   guion:"S1 = portada con hook. S2-S6 = un miedo por slide con cómo se resolvió: miedo a dañar el ojo (resuelto con protocolos de salud), miedo al pegado (resuelto con aislamiento), miedo al adhesivo (resuelto con higrómetro y control ambiental), miedo a la velocidad (resuelto con práctica dirigida), miedo a los resultados (resuelto mostrando antes y después). S7 = la formación correcta convierte los miedos en confianza.",
+   copy:"Los miedos no desaparecen solos — se resuelven con el conocimiento correcto.\n\nComparte si estás pensando en formarte y tienes dudas. 💜",
+   slides:[
+     "Mis miedos al empezar extensiones — y cómo la formación los resolvió (PORTADA)",
+     "Miedo 1: dañar el ojo → Resuelto con el módulo completo de salud y protocolos.",
+     "Miedo 2: pegar pestañas entre sí → Resuelto con horas de práctica de aislamiento.",
+     "Miedo 3: que el adhesivo no coopere → Resuelto con higrómetro y control del ambiente.",
+     "Miedo 4: ser muy lenta → Resuelto: la velocidad llega con práctica consciente.",
+     "Miedo 5: los resultados → Resuelto: 12 semanas de práctica acumulada.",
+     "La formación correcta no elimina los miedos — les da respuesta técnica."
+   ]},
+  {id:"12d",type:"video",num:"Reel 3",angle:"solucion",
+   title:"La reacción de mi modelo — el momento que lo vale todo",
+   hook:"¿Cuál es la mejor parte de este trabajo? La reacción de la clienta al verse.",
+   guion:"Muestra (con permiso) la reacción de tu modelo al verse con las extensiones terminadas. Ese momento de sorpresa, de sonrisa, de 'no me lo esperaba así' — es el corazón del servicio. Habla de por qué ese momento justifica cada hora de práctica y formación.",
+   copy:"Ese momento en que se mira al espejo y no puede creerlo — eso es lo que busco cada vez que trabajo.\n\nEscríbeme si quieres ser mi próxima clienta. 💌",
+   slides:[]},
+  {id:"12e",type:"carousel",num:"Carrusel 2",angle:"producto",
+   title:"Mi trabajo final de extensiones — antes y después",
+   hook:"Este es el antes y después más honesto que puedo mostrarte. Mi trabajo de prueba final.",
+   guion:"S1 = portada con hook. S2 = foto del ojo antes: sin extensiones. S3 = el análisis que hice: tipo de ojo, dirección del vello, diseño elegido. S4 = en proceso: trabajando. S5 = foto del resultado. S6 = datos técnicos del trabajo. S7 = lo que este resultado significa en términos de formación y preparación.",
+   copy:"Esto no es edición — es formación. El antes y el después de 12 semanas de práctica consciente.\n\nGuarda este carrusel — este es el nivel que busco en cada servicio. 📌",
+   slides:[
+     "Mi trabajo final de extensiones — antes y después real (PORTADA)",
+     "ANTES: el ojo sin extensiones, vello natural.",
+     "Análisis: ojo descendente, vello fino, diseño levantador con curva CC.",
+     "EN PROCESO: aislamiento completo, adhesivo controlado.",
+     "DESPUÉS: mirada definida y levantada, sin rastro del trabajo.",
+     "Datos técnicos: fibra FLAT 0.12, curva CC, diseño levantador personalizado.",
+     "12 semanas de formación producen esto. Y esto es solo el comienzo."
+   ]},
+  {id:"12f",type:"video",num:"Reel 4",angle:"mentalidad",
+   title:"Lo que la formación en extensiones me enseñó más allá de la técnica",
+   hook:"12 semanas de formación. Lo que aprendí que va más allá de las pestañas.",
+   guion:"Reflexión profunda y emotiva sobre lo que el proceso de formación enseña: paciencia, atención al detalle, responsabilidad hacia otro ser humano, confianza en el propio trabajo. Conecta esto con el negocio que estás construyendo.",
+   copy:"La técnica se aprende. Lo que no se improvisa es la ética, la paciencia y la responsabilidad con quien confía en ti.\n\nDale like si también crees que la formación transforma a la persona, no solo la habilidad. 💜",
+   slides:[]},
+  {id:"12g",type:"carousel",num:"Carrusel 3",angle:"solucion",
+   title:"La ficha técnica — el respaldo legal de toda lashista profesional",
+   hook:"¿Sabías que una ficha técnica puede protegerte legalmente ante cualquier situación con una clienta?",
+   guion:"S1 = portada con hook. S2-S6 = qué incluye la ficha técnica: datos del cliente, alergias, descripción del servicio, tipo de fibra y adhesivo usado, fecha de próximo retoque. S7 = cómo la ficha te protege ante reclamaciones o situaciones inesperadas.",
+   copy:"La ficha técnica no es burocracia — es tu respaldo profesional y legal ante cualquier situación.\n\nGuarda este carrusel si ofreces o vas a ofrecer servicios de belleza. 📌",
+   slides:[
+     "La ficha técnica — el respaldo legal que toda lashista necesita (PORTADA)",
+     "Registra: nombre, fecha, teléfono, email y alergias de la clienta.",
+     "Describe el servicio: técnica, tipo de fibra, grosor y curvatura usada.",
+     "Documenta el adhesivo: marca, tiempo de secado, condiciones ambientales.",
+     "Incluye: fecha del servicio y fecha recomendada del próximo retoque.",
+     "En caso de reclamación: la ficha demuestra que actuaste con protocolo.",
+     "Sin ficha técnica, cualquier situación puede volverse un problema legal."
+   ]},
+  {id:"12h",type:"video",num:"Reel 5",angle:"producto",
+   title:"Prueba final aprobada — mi agenda ya está abierta",
+   hook:"Prueba final de extensiones aprobada. Ya tengo agenda abierta — esto es lo que ofrezco.",
+   guion:"Anuncia oficialmente la apertura de tus primeras citas de extensiones. Describe brevemente los servicios: clásica y volumen, diseño de miradas personalizado, ficha técnica, protocolo completo. Precio de lanzamiento por tiempo limitado.",
+   copy:"Prueba final aprobada. 12 semanas de formación técnica real. Mi agenda ya está abierta.\n\nEscríbeme para reservar tu cita. Los primeros cupos tienen precio especial. 💌",
+   slides:[]},
+  {id:"12i",type:"carousel",num:"Carrusel 4",angle:"mentalidad",
+   title:"12 semanas — 12 aprendizajes que van más allá de la técnica",
+   hook:"12 semanas de certificación. 12 cosas que aprendí que nadie te cuenta antes de empezar.",
+   guion:"S1 = portada con hook. S2-S8 = un aprendizaje clave por slide, mezclando técnicos y personales: la ética se estudia, el talento sin formación tiene techo, la inversión en conocimiento tiene retorno, practicar mal es peor que no practicar, una instructora que corrige vale más que una que solo elogia, el mejor momento para estudiar ya pasó — el segundo es hoy. S9 = cierre con lo que viene.",
+   copy:"12 semanas. 12 aprendizajes que cambiaron cómo veo este oficio y mi negocio.\n\nComparte con alguien que piense que no necesita seguir aprendiendo. 💜",
+   slides:[
+     "12 semanas de certificación — 12 aprendizajes que nadie te cuenta (PORTADA)",
+     "1. La técnica se aprende. La ética también se estudia — no se improvisa.",
+     "2. El talento empírico sin formación tiene un techo muy bajo.",
+     "3. La formación más cara es la que omites — la pagas en errores.",
+     "4. Practicar mal no es práctica — es reforzar errores.",
+     "5. Una instructora que corrige vale más que mil que solo elogian.",
+     "6. Los miedos no desaparecen solos — se resuelven con conocimiento.",
+     "El mejor momento para estudiar fue antes. El segundo mejor momento es hoy."
+   ]}
+]},
+{week:13,mes:3,level:"Nivel 13",title:"Depilación Corporal · Starpil",sub:"Técnicas de depilación corporal profesional con método Starpil",contents:[
+  {id:"13a",type:"video",num:"Reel 1",angle:"problema",
+   title:"Lo que la desinformación sobre depilación le hace a tu piel",
+   hook:"¿Sabías que hay mucha desinformación sobre depilación corporal que puede estar dañando tu piel sin que lo notes?",
+   guion:"Habla de los mitos y errores comunes en depilación corporal: ceras de baja calidad, temperatura incorrecta, vello roto en lugar de removido desde la raíz. Introduce el método Starpil como marca profesional europea que resuelve estos problemas con técnica y formulación específica.",
+   copy:"La desinformación en depilación tiene consecuencias reales en tu piel. Esta semana aprendo el método Starpil — la diferencia entre hacerlo bien y hacerlo punto.\n\nGuarda este video antes de tu próxima sesión de depilación. 📌",
+   slides:[]},
+  {id:"13b",type:"video",num:"Reel 2",angle:"producto",
+   title:"Así se ve la depilación corporal profesional con Starpil",
+   hook:"¿Cómo se ve una depilación corporal cuando la hace alguien que estudió específicamente para ello?",
+   guion:"Documenta tu práctica con el método Starpil en zona de piernas o brazos: preparación de la piel, temperatura controlada de la cera, técnica de retiro que no irrita. Muestra el antes y después. Resalta la diferencia visual: piel suave, sin enrojecimiento prolongado.",
+   copy:"Así queda la piel con el método correcto: temperatura controlada, técnica precisa, sin irritación innecesaria.\n\nSígueme para saber cuándo abro citas de depilación. 🔔",
+   slides:[]},
+  {id:"13c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Los beneficios del método Starpil que no conocías",
+   hook:"¿Por qué el método Starpil es diferente a la depilación convencional? Esto cambia cómo eliges.",
+   guion:"S1 = portada con hook. S2-S6 = un beneficio por slide: temperatura controlada para no quemar, adhesión al vello y no a la piel, reduce vello enquistado con uso continuo, formulaciones específicas por zona y tipo de piel, resultado visible desde la primera sesión. S7 = lo que estás aprendiendo para ofrecerlo bien.",
+   copy:"El método Starpil no es solo una marca — es una técnica y formulación que cambia completamente el resultado.\n\nGuarda este carrusel para compartir con quien sufre de irritación post-depilación. 📌",
+   slides:[
+     "¿Por qué el método Starpil cambia completamente la depilación? (PORTADA)",
+     "Temperatura controlada — no quema ni irrita la piel sensible.",
+     "Adhiere al vello y no a la piel — retiro limpio sin arrastrar epidermis.",
+     "Reduce la aparición de vello enquistado con el uso continuo correcto.",
+     "Formulaciones específicas según zona corporal y tipo de piel.",
+     "Resultado visible desde la primera sesión — piel suave e hidratada.",
+     "Esto es lo que aprendo esta semana para ofrecerlo con calidad."
+   ]},
+  {id:"13d",type:"video",num:"Reel 3",angle:"problema",
+   title:"Vello enquistado — deja de culpar a tu piel",
+   hook:"¿Vello enquistado después de cada depilación? El problema casi nunca es tu piel — es la técnica.",
+   guion:"Explica las causas reales del vello enquistado: cera fría que rompe en lugar de remover, retiro en dirección incorrecta, piel sin exfoliación previa. Con la técnica y el producto correcto esto se reduce progresivamente. Muestra comprensión del problema y posiciónate como quien tiene la solución.",
+   copy:"El vello enquistado no es destino — es consecuencia de técnica incorrecta. Con el método correcto, se reduce.\n\nDale like si siempre tuviste este problema y no sabías por qué. 💜",
+   slides:[]},
+  {id:"13e",type:"carousel",num:"Carrusel 2",angle:"solucion",
+   title:"Rutina pre y post depilación para piel perfecta",
+   hook:"¿Quieres que tu depilación dure más y no irrite? Esta rutina lo cambia todo.",
+   guion:"S1 = portada con hook. S2-S4 = pasos pre-depilación: exfoliar 48h antes, piel limpia sin cremas el día de, vello de 3-5mm. S5-S7 = pasos post-depilación: sin sol 24-48h, sin perfumes ni desodorante, hidratación sin fragancia ni alcohol.",
+   copy:"La depilación no empieza cuando te sientas en el camilla — empieza 48 horas antes con la preparación correcta.\n\nGuarda y comparte con alguien que siempre tiene irritación post-depilación. 📌",
+   slides:[
+     "La rutina pre y post depilación que transforma tu resultado (PORTADA)",
+     "PRE: exfolia suavemente 48h antes — nunca el día de la cita.",
+     "PRE: piel limpia sin cremas ni aceites el día del servicio.",
+     "PRE: vello de 3-5mm — suficiente para buen agarre sin crecer de más.",
+     "POST: sin sol directo 24-48h — riesgo real de manchas.",
+     "POST: sin perfumes, desodorante ni ropa ajustada las primeras horas.",
+     "POST: hidrata con productos sin fragancia ni alcohol."
+   ]},
+  {id:"13f",type:"video",num:"Reel 4",angle:"mentalidad",
+   title:"Semana 13: soy una profesional integral",
+   hook:"¿Qué pasa cuando una profesional de cejas y pestañas también domina la depilación corporal?",
+   guion:"Haz un inventario potente de todos tus servicios: diseño de cejas, colorimetría, Brow Laminado, extensiones pelo a pelo, depilación facial y corporal Starpil. Habla de la propuesta de valor de ofrecer un servicio integral — sin que la clienta necesite ir a otro lugar.",
+   copy:"Cejas, colorimetría, Brow Laminado, extensiones y ahora depilación corporal. Servicio integral — un solo lugar, una sola profesional.\n\nEscríbeme si quieres una atención completa cuando abra mi agenda. 💌",
+   slides:[]},
+  {id:"13g",type:"carousel",num:"Carrusel 3",angle:"producto",
+   title:"¿Cuándo sí y cuándo NO hacerse una depilación corporal?",
+   hook:"¿Cuándo sí y cuándo NO hacerte una depilación corporal? Hay casos en que definitivamente no es el momento.",
+   guion:"S1 = portada con hook (esta misma pregunta). S2-S4 = casos en que SÍ: vello de 3-5mm, piel hidratada sin lesiones, sin medicamentos que adelgacen la piel. S5-S8 = casos en que NO: piel con acné activo, irritación o quemadura solar, inmediatamente después de sol intenso, sin informar alergias o medicamentos a la esteticista.",
+   copy:"Saber cuándo decir no a un servicio es tan profesional como saber hacerlo bien.\n\nGuarda esta guía antes de tu próxima cita de depilación. 📌",
+   slides:[
+     "¿Cuándo sí y cuándo NO hacerte una depilación corporal? (PORTADA)",
+     "SÍ: vello de 3-5mm de longitud — suficiente agarre para el retiro correcto.",
+     "SÍ: piel hidratada y sin lesiones activas el día del servicio.",
+     "SÍ: sin medicamentos que adelgacen la piel (consulta si tomas isotretinoína).",
+     "NO: piel con acné activo, irritación o quemadura solar reciente.",
+     "NO: inmediatamente después de exposición intensa al sol o bronceado.",
+     "NO: sin informarle a tu esteticista sobre alergias o medicamentos actuales.",
+     "Una profesional te evalúa antes de empezar — eso es cuidado real."
+   ]},
+  {id:"13h",type:"video",num:"Reel 5",angle:"solucion",
+   title:"Resultados de mi semana de depilación — así queda la piel",
+   hook:"Así queda la piel después de una depilación con método Starpil aplicado correctamente.",
+   guion:"Documenta resultados de práctica en piernas u otra zona: piel sin enrojecimiento prolongado, poros limpios, sin vellos rotos bajo la superficie. Habla de lo que el método Starpil hace diferente. Conecta con la confianza de poder ofrecer este servicio.",
+   copy:"Poros limpios, sin enrojecimiento, sin vello roto bajo la superficie. Así se ve el resultado cuando la técnica y el producto son los correctos.\n\nDale like si querrías recibir este servicio. 💜",
+   slides:[]},
+  {id:"13i",type:"carousel",num:"Carrusel 4",angle:"mentalidad",
+   title:"13 semanas — mi menú de servicios ya está completo",
+   hook:"13 semanas de certificación y este es todo lo que ya puedo ofrecerte.",
+   guion:"S1 = portada con hook. S2-S7 = un servicio por slide de forma visual y poderosa. S8 = cierre apuntando a la última semana — marketing — y al lanzamiento inminente.",
+   copy:"13 semanas. Un menú completo de servicios profesionales. La última clase es estrategia de negocio — y luego abro oficialmente.\n\nSígueme para ver mi lanzamiento. 🔔",
+   slides:[
+     "13 semanas — este es todo lo que ya puedo ofrecerte (PORTADA)",
+     "✨ Diseño de cejas profesional con análisis de visagismo.",
+     "✨ Colorimetría: henna y tinte de cejas con manejo de subtonos.",
+     "✨ Depilación facial con método Starpil.",
+     "✨ Brow Laminado profesional con productos certificados.",
+     "✨ Extensiones de pestañas pelo a pelo: clásica y volumen.",
+     "✨ Depilación corporal con método Starpil.",
+     "La próxima semana: estrategia de negocio. Luego abro oficialmente. 💜"
+   ]}
+]},
+{week:14,mes:4,level:"Clase Final",title:"Marketing Digital para Belleza",sub:"Estrategia de negocio, posicionamiento y lanzamiento profesional",contents:[
+  {id:"14a",type:"video",num:"Reel 1",angle:"mentalidad",
+   title:"Lo logré — soy una profesional certificada con estrategia de negocio",
+   hook:"Lo logré. Soy Técnica certificada — y no solo domino la técnica.",
+   guion:"Habla frente a cámara con toda la emoción real del cierre de este proceso. Hoy fue la última clase — y aprendiste lo más estratégico: marketing digital aplicado a belleza, cómo encontrar clientas ideales, cómo comunicar tu valor. Sal con herramientas técnicas Y de negocio. Anuncia que tu agenda oficial está abierta.",
+   copy:"Hoy cerré mi certificación con la clase que lo integra todo: estrategia de negocio, marketing y posicionamiento. No solo sé hacer el trabajo — sé cómo construir con él.\n\nEscríbeme para ser parte de mi primera agenda oficial. 💌",
+   slides:[]},
+  {id:"14b",type:"video",num:"Reel 2",angle:"producto",
+   title:"14 semanas. Una nueva profesional. Lista para ti.",
+   hook:"14 semanas de formación. Una nueva profesional completa. Lista para hacerte lucir increíble.",
+   guion:"Muestra fotos o video con tus compañeras, con la instructora, con tu diploma. Este momento representa 14 semanas de práctica, estudio, errores y superación. Anuncia tu oferta de lanzamiento para las primeras citas. Cupos limitados.",
+   copy:"14 semanas. Este momento representa práctica real, errores reales y una profesional real lista para atenderte. Para celebrar mi lanzamiento, tengo un precio especial en mis primeros servicios.\n\nEscríbeme 'QUIERO' antes de que se llenen los cupos. 💌",
+   slides:[]},
+  {id:"14c",type:"carousel",num:"Carrusel 1",angle:"solucion",
+   title:"Hola — soy tu nueva experta certificada en cejas y pestañas",
+   hook:"¡Hola! Soy [Tu Nombre] — tu nueva experta certificada en cejas y pestañas. Esto es lo que ofrezco.",
+   guion:"S1 = portada con hook. S2 = tu historia en una frase: quién eres, qué estudiaste y por qué. S3 = tus servicios. S4 = tus credenciales: certificación técnica, horas de práctica, módulos completados. S5 = oferta de lanzamiento. S6 = cómo agendar.",
+   copy:"¡Hola! Soy [Tu Nombre] y terminé mi certificación técnica. 14 semanas de formación real.\n\nEscríbeme para reservar tu cita — los primeros cupos tienen precio especial. 💌",
+   slides:[
+     "¡Hola! Soy tu nueva experta certificada en cejas y pestañas (PORTADA)",
+     "Me formé durante 14 semanas en técnica Y estrategia de negocio.",
+     "Mis servicios: diseño de cejas · colorimetría · Brow Laminado · extensiones · depilación Starpil.",
+     "Certificación técnica completa — formación en técnica y marketing de belleza.",
+     "Oferta de lanzamiento: [tu descuento] en los primeros [N] servicios.",
+     "¿Cómo agendar? Escríbeme al DM o al link en mi bio. 💜"
+   ]}
+]}
+];
+
+// ═══════════ STATE ═══════════
+const TOTAL=PLAN.reduce((s,w)=>s+w.contents.length,0);
+let ST={};
+try{const sv=localStorage.getItem('lyznyz_bb');if(sv)ST=JSON.parse(sv);}catch(e){}
+function save(){try{localStorage.setItem('lyznyz_bb',JSON.stringify(ST));}catch(e){}}
+function ck(id,i){return!!ST[`${id}_${i}`];}
+function setCk(id,i,v){ST[`${id}_${i}`]=v;save();}
+
+function getStats(){
+  let pub=0,des=0;
+  PLAN.forEach(w=>w.contents.forEach(c=>{if(ck(c.id,0))des++;if(ck(c.id,1))pub++;}));
+  return{pub,des,total:TOTAL};
+}
+function getWkProg(wk){
+  const w=PLAN.find(x=>x.week===wk);if(!w)return{pub:0,des:0,n:0};
+  return{pub:w.contents.filter(c=>ck(c.id,1)).length,des:w.contents.filter(c=>ck(c.id,0)).length,n:w.contents.length};
+}
+
+function updateUI(){
+  const s=getStats();
+  const pct=TOTAL>0?Math.round(s.pub/TOTAL*100):0;
+  document.getElementById('hdr-bar').style.width=pct+'%';
+  document.getElementById('hdr-label').textContent=`${s.pub} de ${TOTAL} publicados`;
+  document.getElementById('ring-pct').textContent=pct+'%';
+  document.getElementById('ring-el').style.strokeDashoffset=220-(220*pct/100);
+  document.getElementById('cnt-pub').textContent=s.pub;
+  document.getElementById('cnt-des').textContent=s.des;
+  document.getElementById('cnt-tot').textContent=TOTAL;
+  document.getElementById('hero-total').textContent=TOTAL;
+  PLAN.forEach(w=>{
+    const p=getWkProg(w.week);
+    const nc=document.getElementById('nc-'+w.week);
+    if(nc){nc.className='node-circle'+(p.pub===p.n&&p.n>0?' done':p.pub>0||p.des>0?' progress':'');}
+    w.contents.forEach(c=>{
+      const d0=document.getElementById('md-'+c.id+'-0');
+      const d1=document.getElementById('md-'+c.id+'-1');
+      if(d0)d0.className='md'+(ck(c.id,0)?' d':'');
+      if(d1)d1.className='md'+(ck(c.id,1)?' p':'');
+    });
+  });
+}
+
+// ═══════════ BUILD ═══════════
+function build(){
+  const map=document.getElementById('route-map');
+  let lastMes=null;
+  PLAN.forEach(w=>{
+    if(w.mes!==lastMes){
+      lastMes=w.mes;
+      const mi=MES_INFO[w.mes];
+      const ph=document.createElement('div');
+      ph.className='mes-hdr';
+      ph.innerHTML=`<div class="mes-pill">${mi.label}</div><div class="mes-line"></div><div class="mes-cnt">${mi.sub}</div>`;
+      map.appendChild(ph);
+    }
+    const p=getWkProg(w.week);
+    const nc='node-circle'+(p.pub===p.n&&p.n>0?' done':p.pub>0||p.des>0?' progress':'');
+    const row=document.createElement('div');
+    row.className='week-row';
+    row.innerHTML=`
+      <div class="node">
+        <div class="${nc}" id="nc-${w.week}" onclick="toggleWeek(${w.week})">
+          <span class="node-num">${w.week}</span>
+          <span class="node-check">✓</span>
+        </div>
+        <div class="node-lbl">Sem ${w.week}</div>
+      </div>
+      <div class="wcard" id="wcard-${w.week}">
+        <div class="wcard-head" onclick="toggleWeek(${w.week})">
+          <div class="wcard-left">
+            <span class="lvl-badge">${w.level}</span>
+            <div class="wcard-titles">
+              <div class="wcard-title">${w.title}</div>
+              <div class="wcard-sub">${w.sub}</div>
+            </div>
+          </div>
+          <div class="wcard-right">
+            <div class="mdots">${w.contents.map(c=>`<div id="md-${c.id}-0" class="md${ck(c.id,0)?' d':''}"></div><div id="md-${c.id}-1" class="md${ck(c.id,1)?' p':''}"></div>`).join('')}</div>
+            <span class="chev">▾</span>
+          </div>
+        </div>
+        <div class="wcard-body" id="wb-${w.week}">
+          <div class="content-grid" onclick="event.stopPropagation()">
+            ${w.contents.map(c=>buildCC(c)).join('')}
+          </div>
+        </div>
+      </div>`;
+    map.appendChild(row);
+  });
+}
+
+function buildCC(c){
+  const isV=c.type==='video';
+  const icon=isV?'🎬':'🖼️';
+
+  // SLIDES section — for carousels
+  const slidesHtml=(!isV&&c.slides&&c.slides.length)?`
+    <div class="s-lbl slides">🖼️ Slides del carrusel</div>
+    <div class="slides-list">
+      ${c.slides.map((s,i)=>`<div class="slide-item"><span class="slide-n">S${i+1}</span>${s}</div>`).join('')}
+    </div>`:'';
+
+  // COPY BOX — shows the exact text to paste in the post
+  const cid='cp-'+c.id;
+
+  return `<div class="cc">
+    <div class="cc-top">
+      <div class="cc-icon ${c.type}">${icon}</div>
+      <div class="cc-meta">
+        <div class="cc-type ${c.type}">${isV?'Video / Reel':'Carrusel'}</div>
+        <div class="cc-num">${c.num}</div>
+      </div>
+    </div>
+    <div class="angle-badge" style="background:${aColor(c.angle)}18;color:${aColor(c.angle)};border-color:${aColor(c.angle)}30">${aTag(c.angle)}</div>
+    <div class="cc-title">${c.title}</div>
+    <div class="s-lbl hook">🎣 Hook / Gancho</div>
+    <div class="cc-hook">${c.hook}</div>
+    <div class="s-lbl guion">📋 ${isV?'Guión — idea completa para grabar':'Estructura narrativa del carrusel'}</div>
+    <div class="cc-guion">${c.guion||''}</div>
+    ${slidesHtml}
+    <div class="s-lbl copy">✍️ Copy — texto para publicar (incluye CTA)</div>
+    <div class="cc-copy-box" id="${cid}">${(c.copy||'').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+    <button class="btn-copy" onclick="doCopy('${cid}',this)">📋 Copiar y pegar en tu post</button>
+    <div class="cc-checks">
+      <div class="check-row${ck(c.id,0)?' done':''}" id="cr-${c.id}-0">
+        <input type="checkbox" id="chk-${c.id}-0" ${ck(c.id,0)?'checked':''} onchange="onCheck('${c.id}',0,this)">
+        <label for="chk-${c.id}-0">📝 Diseñado${isV?' / Grabado':''}</label>
+      </div>
+      <div class="check-row${ck(c.id,1)?' done':''}" id="cr-${c.id}-1">
+        <input type="checkbox" id="chk-${c.id}-1" ${ck(c.id,1)?'checked':''} onchange="onCheck('${c.id}',1,this)">
+        <label for="chk-${c.id}-1">✅ Publicado en redes</label>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleWeek(wk){
+  const wb=document.getElementById('wb-'+wk);
+  const wc=document.getElementById('wcard-'+wk);
+  const isOpen=wb.classList.contains('open');
+  document.querySelectorAll('.wcard-body.open').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.wcard.open').forEach(c=>c.classList.remove('open'));
+  if(!isOpen){wb.classList.add('open');wc.classList.add('open');
+    setTimeout(()=>wc.scrollIntoView({behavior:'smooth',block:'nearest'}),40);}
+}
+
+function onCheck(id,idx,el){
+  setCk(id,idx,el.checked);
+  const row=document.getElementById(`cr-${id}-${idx}`);
+  if(row)row.className='check-row'+(el.checked?' done':'');
+  updateUI();
+  toast(el.checked?(idx===1?'✅ ¡Publicado! Sigue avanzando 🔥':'📝 Marcado como diseñado'):'↩ Desmarcado');
+}
+
+function doCopy(id,btn){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const txt=el.innerText||el.textContent;
+  const ok=()=>{btn.textContent='✅ ¡Copiado!';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Copiar y pegar en tu post';btn.classList.remove('copied');},2500);};
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(ok).catch(()=>fbCopy(txt,ok));}
+  else fbCopy(txt,ok);
+}
+function fbCopy(txt,ok){
+  const ta=document.createElement('textarea');
+  ta.value=txt;ta.style.cssText='position:fixed;opacity:0;';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');ok();}catch(e){toast('❌ No se pudo copiar');}
+  document.body.removeChild(ta);
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2500);
+}
+function openModal(){document.getElementById('modal').classList.add('show');}
+function closeModal(){document.getElementById('modal').classList.remove('show');}
+
+// ═══════════ PDF — guion only, no copy ═══════════
+function downloadPDF(){
+  const {jsPDF}=window.jspdf;
+  if(!jsPDF){toast('❌ Error al cargar jsPDF');return;}
+  closeModal();toast('⏳ Generando PDF…');
+  setTimeout(()=>{
+    try{
+      const doc=new jsPDF({orientation:'p',unit:'mm',format:'a4'});
+      const W=210,M=15,CW=W-M*2;
+      let y=18;
+      const addPage=()=>{doc.addPage();y=18;};
+      const guard=h=>{if(y+h>280)addPage();};
+
+      // COVER HEADER
+      doc.setFillColor(139,0,0);
+      doc.rect(0,0,W,36,'F');
+      doc.setTextColor(255,255,255);
+      doc.setFont('helvetica','bold');doc.setFontSize(17);
+      doc.text('BEAUTY $ BUSINESS — Plan de Contenido',M,13);
+      doc.setFont('helvetica','normal');doc.setFontSize(10);
+      doc.text('@lyznyzacademia · Certificación Técnica · 14 Semanas',M,21);
+      doc.setFontSize(8.5);doc.setTextColor(255,200,200);
+      doc.text('Guión imprimible para grabar — el copy está disponible en la plataforma.',M,28);
+      const s=getStats();
+      doc.text(`Generado: ${new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'})} · Publicados: ${s.pub}/${s.total}`,M,34);
+      y=46;
+
+      const mesNames={1:'MES 1 — Semanas 1–4 · 3 contenidos por semana',
+        2:'MES 2 — Semanas 5–8 · 6 contenidos por semana',
+        3:'MES 3 — Semanas 9–13 · 9 contenidos por semana',
+        4:'SEMANA FINAL — Semana 14 · Clase de Marketing'};
+      let lastMes=null;
+
+      PLAN.forEach(w=>{
+        if(w.mes!==lastMes){
+          lastMes=w.mes;
+          guard(14);
+          doc.setFillColor(139,0,0);
+          doc.roundedRect(M,y,CW,9,2,2,'F');
+          doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(9.5);
+          doc.text(mesNames[w.mes]||'',M+4,y+6.2);
+          y+=14;
+        }
+        guard(12);
+        doc.setFillColor(252,240,242);
+        doc.roundedRect(M,y,CW,8,1,1,'F');
+        doc.setTextColor(139,0,0);doc.setFont('helvetica','bold');doc.setFontSize(10);
+        doc.text(`Semana ${w.week}: ${w.title}`,M+3,y+5.5);
+        doc.setTextColor(130,80,90);doc.setFont('helvetica','italic');doc.setFontSize(8);
+        doc.text(w.sub,W-M-2,y+5.5,{align:'right'});
+        y+=12;
+
+        w.contents.forEach(c=>{
+          guard(10);
+          // Status circle
+          const isPub=ck(c.id,1);const isDes=ck(c.id,0);
+          if(isPub)doc.setFillColor(0,150,0);
+          else if(isDes)doc.setFillColor(180,130,0);
+          else doc.setFillColor(190,190,190);
+          doc.circle(M+3,y+2.5,2.5,'F');
+          // Title
+          doc.setFont('helvetica','bold');doc.setFontSize(9.5);
+          doc.setTextColor(isPub?0:isDes?100:60,isPub?110:isDes?70:60,isPub?0:isDes?0:60);
+          const ttl=`${c.num} (${c.type==='video'?'VIDEO':'CARRUSEL'}) — ${c.title}`;
+          const tl=doc.splitTextToSize(ttl,CW-10);
+          doc.text(tl,M+8,y+3);y+=tl.length*5+1;
+          // Status label
+          guard(5);
+          doc.setFont('helvetica','bold');doc.setFontSize(7.5);
+          doc.setTextColor(isPub?0:isDes?130:160,isPub?130:isDes?100:160,isPub?0:isDes?0:160);
+          doc.text(isPub?'● PUBLICADO':isDes?'◐ DISEÑADO':'○ PENDIENTE',M+8,y);y+=5;
+          // HOOK
+          guard(6);
+          doc.setFont('helvetica','bolditalic');doc.setFontSize(8.5);doc.setTextColor(160,0,0);
+          doc.text('HOOK / GANCHO:',M+8,y);y+=4.5;
+          doc.setFont('helvetica','italic');doc.setFontSize(8.5);doc.setTextColor(30,30,30);
+          const hl=doc.splitTextToSize(`"${c.hook}"`,CW-14);
+          guard(hl.length*4.5);doc.text(hl,M+10,y);y+=hl.length*4.5+3;
+          // GUION
+          if(c.guion){
+            guard(6);
+            doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(70,70,70);
+            doc.text(c.type==='video'?'GUIÓN — IDEA COMPLETA:':'ESTRUCTURA NARRATIVA:',M+8,y);y+=4.5;
+            doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(40,40,40);
+            const gl=doc.splitTextToSize(c.guion,CW-16);
+            guard(gl.length*4.5);doc.text(gl,M+10,y);y+=gl.length*4.5+3;
+          }
+          // SLIDES
+          if(c.type==='carousel'&&c.slides&&c.slides.length){
+            guard(6);
+            doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(100,60,0);
+            doc.text('SLIDES DEL CARRUSEL:',M+8,y);y+=4.5;
+            c.slides.forEach((s,si)=>{
+              doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(40,40,40);
+              const sl=doc.splitTextToSize(`S${si+1}: ${s}`,CW-18);
+              guard(sl.length*4.5+1);doc.text(sl,M+12,y);y+=sl.length*4.5+1.5;
+            });
+            y+=1;
+          }
+          // Divider
+          guard(4);
+          doc.setDrawColor(220,180,185);doc.setLineWidth(0.2);
+          doc.line(M+8,y,W-M,y);y+=6;
+        });
+        y+=3;
+      });
+
+      // PAGE FOOTER
+      const pages=doc.getNumberOfPages();
+      for(let i=1;i<=pages;i++){
+        doc.setPage(i);
+        doc.setDrawColor(139,0,0);doc.setLineWidth(0.25);doc.line(M,287,W-M,287);
+        doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(150,100,110);
+        doc.text('© @lyznyzacademia · Beauty $ Business Certificación Técnica · Prohibido compartir sin autorización',W/2,291,{align:'center'});
+        doc.text(`Pág. ${i}/${pages}`,W-M,291,{align:'right'});
+      }
+      doc.save('beauty-business-guion-14-semanas.pdf');
+      toast('✅ PDF descargado con éxito');
+    }catch(e){console.error(e);toast('❌ Error. Intenta de nuevo.');}
+  },300);
+}
+
+// INIT
+build();
+updateUI();
+</script>
+</body>
+</html>
